@@ -25,6 +25,13 @@ public sealed class Product : BaseEntity
     [StringLength(100)]
     public string? ImageUrl { get; private set; }
     
+    public ProductBrand ProductBrand { get; private set; }
+    
+    public int ProductBrandId { get; private set; }
+    
+    public ProductCategory ProductCategory { get; set; }
+    
+    public int ProductCategoryId { get; set; }
 
     public Product(int id, string name, string description, decimal price, string imageUrl) : base(id)
     {
