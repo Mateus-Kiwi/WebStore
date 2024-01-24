@@ -20,5 +20,10 @@ public sealed class ProductCategory : BaseEntity
         DomainValidationException.When(name.Length > 30, "Invalid category name. Name should a maximum of 30 characters");
         Name = name;
     }
+
+    public void GetName(ProductCategory category)
+    {
+        category.Name = Name;
+    }
     
 }
