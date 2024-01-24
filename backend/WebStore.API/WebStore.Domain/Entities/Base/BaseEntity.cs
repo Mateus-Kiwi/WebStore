@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WebStore.Domain.Validation;
 
 namespace WebStore.Domain.Entities.Base;
 
@@ -14,7 +15,7 @@ public abstract class BaseEntity
 
     private void ValidateId(int id)
     {
-        //TODO: Domain Validation Exception
+        DomainValidationException.When(id < 0,"Id cant be negative");
         Id = id;
     }
 }

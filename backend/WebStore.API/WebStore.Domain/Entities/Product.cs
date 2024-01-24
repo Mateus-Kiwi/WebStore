@@ -32,12 +32,23 @@ public sealed class Product : BaseEntity
     public ProductCategory ProductCategory { get; set; }
     
     public int ProductCategoryId { get; set; }
+    
 
     public Product(int id, string name, string description, decimal price, string imageUrl) : base(id)
     {
         Validate(name,description,price,imageUrl);
     }
-    
+
+
+    public void UpdateProduct(Product product)
+    {
+        product.Name = Name;
+        product.Description = Description;
+        product.ImageUrl = ImageUrl;
+        product.Price = Price;
+        product.ProductBrand = ProductBrand;
+        product.ProductCategory = ProductCategory;
+    }
     
     private void Validate(string name, string description, decimal price, string imageUrl)
     {
