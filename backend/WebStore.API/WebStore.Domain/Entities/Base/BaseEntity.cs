@@ -15,7 +15,7 @@ public abstract class BaseEntity
 
     private void ValidateId(int id)
     {
-        DomainValidationException.When(id < 0,"Id cant be negative");
+        DomainValidationException.When(id < 0,"ID cant be negative");
         Id = id;
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj": {}
+    "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj": {}
   },
   "projects": {
-    "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj": {
+    "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj",
+        "projectUniqueName": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj",
         "projectName": "WebStore.API",
-        "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj",
-        "packagesPath": "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.API\\obj\\",
+        "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj",
+        "packagesPath": "C:\\Users\\mateus.silveira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Augusto Medeiros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mateus.silveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,17 +28,17 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj"
               },
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
               },
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
               },
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj"
               }
             }
           }
@@ -89,17 +89,17 @@
         }
       }
     },
-    "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
+    "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj",
+        "projectUniqueName": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj",
         "projectName": "WebStore.Data",
-        "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj",
-        "packagesPath": "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\obj\\",
+        "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj",
+        "packagesPath": "C:\\Users\\mateus.silveira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Augusto Medeiros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mateus.silveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,11 +113,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
               },
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
               }
             }
           }
@@ -151,17 +151,17 @@
         }
       }
     },
-    "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+    "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
         "projectName": "WebStore.Domain",
-        "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
-        "packagesPath": "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\obj\\",
+        "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
+        "packagesPath": "C:\\Users\\mateus.silveira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Augusto Medeiros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mateus.silveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -206,17 +206,17 @@
         }
       }
     },
-    "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
+    "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
         "projectName": "WebStore.Infra",
-        "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
-        "packagesPath": "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\obj\\",
+        "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
+        "packagesPath": "C:\\Users\\mateus.silveira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Augusto Medeiros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mateus.silveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -230,8 +230,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
               }
             }
           }
@@ -271,17 +271,17 @@
         }
       }
     },
-    "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj": {
+    "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
+        "projectUniqueName": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
         "projectName": "WebStore.IoC",
-        "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
-        "packagesPath": "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\",
-        "outputPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\obj\\",
+        "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
+        "packagesPath": "C:\\Users\\mateus.silveira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Augusto Medeiros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mateus.silveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -295,14 +295,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj"
               },
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
               },
-              "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
-                "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
+              "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
+                "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
               }
             }
           }

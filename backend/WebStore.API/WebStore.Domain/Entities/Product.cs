@@ -24,6 +24,8 @@ public sealed class Product : BaseEntity
     [MinLength(5)]
     [StringLength(100)]
     public string? ImageUrl { get; private set; }
+
+    
     
     public ProductBrand ProductBrand { get; private set; }
     

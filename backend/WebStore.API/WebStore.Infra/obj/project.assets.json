@@ -574,19 +574,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\": {}
+    "C:\\Users\\mateus.silveira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
+      "projectUniqueName": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
       "projectName": "WebStore.Infra",
-      "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
-      "packagesPath": "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\",
-      "outputPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\obj\\",
+      "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
+      "packagesPath": "C:\\Users\\mateus.silveira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Augusto Medeiros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mateus.silveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -600,8 +600,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
-              "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
+            "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+              "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
             }
           }
         }
