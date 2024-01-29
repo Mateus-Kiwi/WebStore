@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="12.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
@@ -30,11 +31,6 @@
       <ProjectReference Include="..\WebStore.Domain\WebStore.Domain.csproj" />
       <ProjectReference Include="..\WebStore.Infra\WebStore.Infra.csproj" />
       <ProjectReference Include="..\WebStore.IoC\WebStore.IoC.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="DTOs\" />
-      <Folder Include="Mappings\" />
     </ItemGroup>
 
 </Project>

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VkdextHEDv1fIxf4PLWwnYc+KTxxaeNIaw8b6rjV3uO0zJPQJ6/+XA4E+uP+lP+vhOEV6i/XNo279/JOw0DZEw==",
+  "dgSpecHash": "oHdJeaQLWGDPh6Dc7mB+DGt20jx8J7sXJ0aBNCyEyBR0ndseUawEo5qKCdj1VT/3FMdSImgRwy3nUu8c8wb0EQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.1\\microsoft.entityframeworkcore.8.0.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.1\\microsoft.entityframeworkcore.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.1\\microsoft.entityframeworkcore.analyzers.8.0.1.nupkg.sha512",
