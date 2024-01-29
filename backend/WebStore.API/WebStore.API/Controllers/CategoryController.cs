@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Interfaces;
+using WebStore.Domain.Repositories;
 
 namespace WebStore.API.Controllers;
 

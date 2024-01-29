@@ -24,4 +24,9 @@ public sealed class ProductBrand : BaseEntity
         DomainValidationException.When(name.Length > 30, "Invalid brand name. Name should a maximum of 30 characters");
         Name = name;
     }
+
+    public void UpdateBrand(ProductBrand brand)
+    {
+        brand.Name = Name;
+    }
 }

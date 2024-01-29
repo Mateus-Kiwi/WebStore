@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kAGKHyC7Ou5S59308r7ERnpwfa+KLOAQdpo17Vu/1Nh1ws9bjphkDlI+T4nVTM6bZS91Sk1TGXybAxi53pbz6A==",
+  "dgSpecHash": "osg7IazhVTbUMfJvdShYHNZDvQ6gk30+E+ybHRLUG3rNAZNZKyQPMjChlBh5SuOS06Cafk4hS0v+okMfTRgytQ==",
   "success": true,
-  "projectFilePath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
+  "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

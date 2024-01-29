@@ -574,34 +574,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\": {}
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
+      "projectUniqueName": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
       "projectName": "WebStore.Infra",
-      "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
-      "packagesPath": "C:\\Users\\Augusto Medeiros\\.nuget\\packages\\",
-      "outputPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\obj\\",
+      "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj",
+      "packagesPath": "C:\\Users\\augusto.costa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Augusto Medeiros\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\augusto.costa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
-              "projectPath": "E:\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
+            "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+              "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
             }
           }
         }
@@ -637,7 +635,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
