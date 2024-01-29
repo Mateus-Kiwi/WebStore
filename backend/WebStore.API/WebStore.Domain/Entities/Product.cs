@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Validation;
 
@@ -25,18 +26,18 @@ public sealed class Product : BaseEntity
     [StringLength(100)]
     public string? ImageUrl { get; private set; }
     
-    public ProductBrand ProductBrand { get; private set; }
+    [Required]
+    [ForeignKey("BrandId")]
+    public int  BrandId { get; private set; }
     
-    public int ProductBrandId { get; private set; }
-    
-    public ProductCategory ProductCategory { get; set; }
-    
-    public int ProductCategoryId { get; set; }
+    [Required]
+    [ForeignKey("ProductCategoryId")]
+    public int CategoryId { get; private set; }
     
 
-    public Product(int id, string name, string description, decimal price, string imageUrl) : base(id)
+    public Product(int id, string name, string description, decimal price, string imageUrl,int brandId, int categoryId) : base(id)
     {
-        Validate(name,description,price,imageUrl);
+        Validate(name,description,price,imageUrl,brandId,categoryId);
     }
 
 
@@ -46,18 +47,30 @@ public sealed class Product : BaseEntity
         product.Description = Description;
         product.ImageUrl = ImageUrl;
         product.Price = Price;
-        product.ProductBrand = ProductBrand;
-        product.ProductCategory = ProductCategory;
+        product.BrandId = BrandId;
+        product.CategoryId = CategoryId;
     }
     
-    private void Validate(string name, string description, decimal price, string imageUrl)
+    private void Validate(string name, string description, decimal price, string imageUrl, int brandId, int categoryId)
     {
         ValidateName(name);
         ValidateDescription(description);
         ValidatePrice(price);
         ValidateImageUrl(imageUrl);
+        ValidateBrandId(brandId);
+        ValidateCategoryId(categoryId);
+    }
+
+    private void ValidateBrandId(int brandId)
+    {
+        DomainValidationException.When(brandId < 0, "Invalid Brand Id. Brand Id should not be negative");
     }
     
+    private void ValidateCategoryId(int categoryId)
+    {
+        DomainValidationException.When(categoryId < 0, "Invalid Category Id. Category Id should not be negative");
+    }
+
 
     private void ValidateName(string name)
     {

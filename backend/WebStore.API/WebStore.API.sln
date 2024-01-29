@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.API", "WebStore.API\WebStore.API.csproj", "{11F49840-6A76-4D1C-BCBB-F16DC5B552DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Application", "WebStore.Application\WebStore.Application.csproj", "{11F49840-6A76-4D1C-BCBB-F16DC5B552DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStore.Domain", "WebStore.Domain\WebStore.Domain.csproj", "{4401B1FD-1B84-426D-932E-DA0CE0BE19CA}"
 EndProject

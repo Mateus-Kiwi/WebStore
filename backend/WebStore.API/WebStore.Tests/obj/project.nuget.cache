@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8G7r9GPjZ00+yzYkJMwu3Sbww+Ro7YmcXsBPBnuggqeiGVzJ83ORaL8o4iUIhhVKR7Z/T1OnQjOKN9E8Sa6nIg==",
+  "dgSpecHash": "OhVlzyBscgemLVnEgDPtj8K9S6wbxse4OxeLfyCihbjMAjGF8jMmUioIih7ntQIsrwuDwUqI+edeFapaZtplpw==",
   "success": true,
   "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Tests\\WebStore.Tests.csproj",
   "expectedPackageFiles": [

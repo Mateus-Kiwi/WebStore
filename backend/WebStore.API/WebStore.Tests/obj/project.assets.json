@@ -2105,7 +2105,7 @@
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "WebStore.API/1.0.0": {
+      "WebStore.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -2118,10 +2118,10 @@
           "WebStore.IoC": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/WebStore.API.dll": {}
+          "bin/placeholder/WebStore.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/WebStore.API.dll": {}
+          "bin/placeholder/WebStore.Application.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -6781,10 +6781,10 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "WebStore.API/1.0.0": {
+    "WebStore.Application/1.0.0": {
       "type": "project",
-      "path": "../WebStore.API/WebStore.API.csproj",
-      "msbuildProject": "../WebStore.API/WebStore.API.csproj"
+      "path": "../WebStore.Application/WebStore.Application.csproj",
+      "msbuildProject": "../WebStore.Application/WebStore.Application.csproj"
     },
     "WebStore.Data/1.0.0": {
       "type": "project",
@@ -6810,7 +6810,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.NET.Test.Sdk >= 17.6.0",
-      "WebStore.API >= 1.0.0",
+      "WebStore.Application >= 1.0.0",
       "WebStore.Data >= 1.0.0",
       "WebStore.Domain >= 1.0.0",
       "WebStore.Infra >= 1.0.0",
@@ -6845,8 +6845,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj": {
-              "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.API\\WebStore.API.csproj"
+            "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Application\\WebStore.Application.csproj": {
+              "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Application\\WebStore.Application.csproj"
             },
             "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
               "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj"

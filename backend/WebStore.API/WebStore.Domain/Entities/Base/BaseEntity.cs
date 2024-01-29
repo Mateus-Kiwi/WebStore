@@ -5,6 +5,7 @@ namespace WebStore.Domain.Entities.Base;
 
 public abstract class BaseEntity 
 {
+    
     protected BaseEntity(int id)
     {
         ValidateId(id);
