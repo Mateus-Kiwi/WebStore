@@ -11,8 +11,8 @@ using WebStore.Infra.Context;
 namespace WebStore.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240129132950_First Migration")]
-    partial class FirstMigration
+    [Migration("20240129165024_first migration")]
+    partial class firstmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,12 @@ namespace WebStore.API.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BrandId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -48,19 +54,14 @@ namespace WebStore.API.Migrations
                         .HasColumnType("character varying(30)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("ProductBrandId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProductCategoryId")
-                        .HasColumnType("integer");
+                        .HasPrecision(10, 2)
+                        .HasColumnType("numeric(10,2)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductBrandId");
+                    b.HasIndex("BrandId");
 
-                    b.HasIndex("ProductCategoryId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -101,21 +102,17 @@ namespace WebStore.API.Migrations
 
             modelBuilder.Entity("WebStore.Domain.Entities.Product", b =>
                 {
-                    b.HasOne("WebStore.Domain.Entities.ProductBrand", "ProductBrand")
+                    b.HasOne("WebStore.Domain.Entities.ProductBrand", null)
                         .WithMany()
-                        .HasForeignKey("ProductBrandId")
+                        .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebStore.Domain.Entities.ProductCategory", "ProductCategory")
+                    b.HasOne("WebStore.Domain.Entities.ProductCategory", null)
                         .WithMany()
-                        .HasForeignKey("ProductCategoryId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ProductBrand");
-
-                    b.Navigation("ProductCategory");
                 });
 #pragma warning restore 612, 618
         }
