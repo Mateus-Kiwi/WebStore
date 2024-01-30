@@ -3,7 +3,6 @@ using WebStore.API.Interfaces.Base;
 
 namespace WebStore.API.Interfaces;
 
-public interface IProductService : IBaseService<ProductDto>
+public interface IBrandService : IBaseService<BrandDto>
 {
-    
 }

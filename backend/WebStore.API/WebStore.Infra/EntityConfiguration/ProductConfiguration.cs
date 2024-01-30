@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebStore.Domain.Entities;
 
-namespace WebStore.Data.EntityConfiguration;
+namespace WebStore.Infra.EntityConfiguration;
 
 public class ProductConfiguration : IEntityTypeConfiguration<Product>
 {

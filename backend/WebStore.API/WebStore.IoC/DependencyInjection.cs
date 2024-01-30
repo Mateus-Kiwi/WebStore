@@ -5,7 +5,6 @@ using WebStore.Data.RepositoriesImpl;
 using WebStore.Domain.Interfaces;
 using WebStore.Domain.Repositories;
 using WebStore.Infra.Context;
-
 namespace WebStore.IoC;
 
 public static class DependencyInjection
