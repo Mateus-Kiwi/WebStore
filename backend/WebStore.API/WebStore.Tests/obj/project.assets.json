@@ -18,6 +18,19 @@
           }
         }
       },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "[12.0.1]",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "coverlet.collector/6.0.0": {
         "type": "package",
         "build": {
@@ -109,10 +122,10 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/8.0.0": {
+      "Microsoft.EntityFrameworkCore.Relational/8.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
         },
         "compile": {
@@ -2137,6 +2150,8 @@
           "AutoMapper": "12.0.1",
           "Microsoft.AspNetCore.OpenApi": "8.0.1",
           "Microsoft.EntityFrameworkCore": "8.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.0",
           "Swashbuckle.AspNetCore": "6.4.0",
           "WebStore.Data": "1.0.0",
           "WebStore.Domain": "1.0.0",
@@ -2201,6 +2216,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
           "Npgsql": "8.0.1",
@@ -2232,6 +2248,20 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+      "sha512": "+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "coverlet.collector/6.0.0": {
@@ -2480,17 +2510,17 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/8.0.0": {
-      "sha512": "fFKkr24cYc7Zw5T6DC4tEyOEPgPbq23BBmym1r9kn4ET9F3HKaetpOeQtV2RryYyUxEeNkJuxgfiZHTisqZc+A==",
+    "Microsoft.EntityFrameworkCore.Relational/8.0.1": {
+      "sha512": "uL1tO14kbsi0EqtfvElGJ68irUlu2DbkTMKz4+8WvVc1TV2GwVgfwQWv7uwDqsB5+JK9alfP3tZjHkWiSpk3oA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/8.0.0",
+      "path": "microsoft.entityframeworkcore.relational/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.8.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.8.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },

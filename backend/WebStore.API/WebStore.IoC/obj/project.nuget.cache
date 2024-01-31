@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "oHdJeaQLWGDPh6Dc7mB+DGt20jx8J7sXJ0aBNCyEyBR0ndseUawEo5qKCdj1VT/3FMdSImgRwy3nUu8c8wb0EQ==",
+  "dgSpecHash": "SonNTv7A0kF3Q9nfSh5feLDcRPQoZrdThU4sMPgM/Y6FGY/A7gQ1+UDSZBJwW6IRT5x9YU8euv/kKD8lFnmTfg==",
   "success": true,
   "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\augusto.costa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.1\\microsoft.entityframeworkcore.8.0.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.1\\microsoft.entityframeworkcore.abstractions.8.0.1.nupkg.sha512",

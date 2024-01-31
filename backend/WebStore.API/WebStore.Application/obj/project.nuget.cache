@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "dxlSB7IRf1Cn2WvdDPk5Jdm4QVMjCbSKQD0ApLlGLLR/vI13saaD8x093zTBYKbOXtyvM1ON6DXQbxmxn/1oNQ==",
+  "dgSpecHash": "NsseZ2Qu/Tv0jVQxBMgkqxGV7x9x0fVi/acjcfMAX8AtWHntXel7fl2S2R5qLh38A8MBHCda/L+dpatkelChfw==",
   "success": true,
   "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Application\\WebStore.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\augusto.costa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.1\\microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

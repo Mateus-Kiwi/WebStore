@@ -10,3 +10,4 @@ C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Domain\ob
 C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Domain\obj\Debug\net8.0\refint\WebStore.Domain.dll
 C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Domain\obj\Debug\net8.0\WebStore.Domain.pdb
 C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Domain\obj\Debug\net8.0\ref\WebStore.Domain.dll
+C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Domain\obj\Debug\net8.0\WebStore.Domain.csproj.AssemblyReference.cache
