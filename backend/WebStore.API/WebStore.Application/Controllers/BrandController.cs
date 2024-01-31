@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebStore.API.DTOs;
+using WebStore.API.Interfaces;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Repositories;
 
 namespace WebStore.API.Controllers;
 
@@ -8,24 +9,24 @@ namespace WebStore.API.Controllers;
 [ApiController]
 public class BrandController : ControllerBase
 {
-    private readonly IBrandRepository _repository;
+    private readonly IBrandService _service;
     
-    public BrandController(IBrandRepository repository)
+    public BrandController(IBrandService service)
     {
-        _repository = repository;
+        _service = service;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var brands = await _repository.GetAll();
+        var brands = await _service.GetAll();
         return Ok(brands);
     }
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int? id)
     {
-        var brandById = await _repository.GetById(id);
+        var brandById = await _service.GetById(id);
         if (brandById == null)
         {
             throw new Exception($"Brand with Id {id} not found.");
@@ -34,23 +35,23 @@ public class BrandController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(ProductBrand brand)
+    public async Task<IActionResult> Create(BrandDto brand)
     {
-        await _repository.Create(brand);
+        await _service.Create(brand);
         return Ok(brand);
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update(int? id, ProductBrand brand)
+    public async Task<IActionResult> Update(int? id, BrandDto brand)
     {
-        await _repository.Update(id, brand);
+        await _service.Update(id, brand);
         return Ok(brand);
     }
 
     [HttpDelete]
     public async Task<IActionResult> Delete(int? id)
     {
-        var productToDelete = await _repository.Delete(id);
-        return Ok(productToDelete);
+        await _service.Delete(id);
+        return Ok();
     }
 }

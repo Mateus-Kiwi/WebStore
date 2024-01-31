@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebStore.API.DTOs;
+using WebStore.API.Interfaces;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Interfaces;
 using WebStore.Domain.Repositories;
@@ -9,17 +11,17 @@ namespace WebStore.API.Controllers;
 [ApiController]
 public class CategoryController : ControllerBase
 {
-    private readonly ICategoryRepository _repository;
+    private readonly ICategoryService _service;
     
-    public CategoryController(ICategoryRepository repository)
+    public CategoryController(ICategoryService service)
     {
-        _repository = repository;
+        _service = service;
     }
-
+   
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var categories = await _repository.GetAll();
+        var categories = await _service.GetAll();
 
         if (categories == null)
         {
@@ -32,7 +34,7 @@ public class CategoryController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
-        var categoryById = await _repository.GetById(id);
+        var categoryById = await _service.GetById(id);
 
         if (categoryById == null)
         {
@@ -43,23 +45,23 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(ProductCategory category)
+    public async Task<IActionResult> Create(CategoryDto category)
     {
-        await _repository.Create(category);
+        await _service.Create(category);
         return Ok(category);
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, ProductCategory category)
+    public async Task<IActionResult> Update(int id, CategoryDto category)
     {
-        await _repository.Update(id, category);
+        await _service.Update(id, category);
         return Ok(category);
     }
 
     [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
-        var categoryToDelete = await _repository.Delete(id);
-        return Ok(categoryToDelete);
+        await _service.Delete(id);
+        return Ok();
     }
 }
