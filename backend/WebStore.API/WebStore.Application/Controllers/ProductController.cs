@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebStore.API.DTOs;
+using WebStore.API.Interfaces;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Interfaces;
 
@@ -9,17 +11,17 @@ namespace WebStore.API.Controllers;
 [ApiController]
 public class ProductController : ControllerBase
 {
-    private readonly IProductRepository _repository;
+    private readonly IProductService _service;
     
-    public ProductController(IProductRepository repository)
+    public ProductController(IProductService service)
     {
-        _repository = repository;
+        _service = service;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var products = await _repository.GetAll();
+        var products = await _service.GetAll();
 
         if (products == null)
         {
@@ -32,7 +34,7 @@ public class ProductController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<IActionResult> Create(int? id)
     {
-        var product = _repository.GetById(id);
+        var product = await _service.GetById(id);
 
         if (product == null)
         {
@@ -43,23 +45,23 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Product product)
+    public async Task<IActionResult> Create(ProductDto product)
     {
-        await _repository.Create(product);
+        await _service.Create(product);
         return Ok(product);
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, Product product)
+    public async Task<IActionResult> Update(int id, ProductDto product)
     {
-        await _repository.Update(id, product);
+        await _service.Update(id, product);
         return Ok(product);
     }
 
     [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
-        var deletedProduct = await _repository.Delete(id);
-        return Ok(deletedProduct);
+        await _service.Delete(id);
+        return Ok();
     }
 }
