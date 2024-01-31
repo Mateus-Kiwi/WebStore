@@ -1,3 +1,4 @@
+using WebStore.API.DependencyInjection;
 using WebStore.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddInfrastructure(builder.Configuration);
+var infra = new DependencyInjection();
+infra.AddInfrastructure(builder.Services,builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
