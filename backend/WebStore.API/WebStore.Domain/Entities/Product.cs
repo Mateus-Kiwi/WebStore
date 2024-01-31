@@ -23,16 +23,18 @@ public sealed class Product : BaseEntity
     
     [Required]
     [MinLength(5)]
-    [StringLength(100)]
+    [StringLength(300)]
     public string? ImageUrl { get; private set; }
     
     [Required]
-    [ForeignKey("BrandId")]
     public int  BrandId { get; private set; }
     
+    public ProductBrand Brand { get; private set; }
+    
     [Required]
-    [ForeignKey("ProductCategoryId")]
     public int CategoryId { get; private set; }
+    
+    public ProductCategory Category { get; private set; }
     
 
     public Product(int id, string name, string description, decimal price, string imageUrl,int brandId, int categoryId) : base(id)
@@ -101,7 +103,7 @@ public sealed class Product : BaseEntity
         DomainValidationException.When(string.IsNullOrEmpty(imageUrl),"Invalid image url. Image url is required");
         DomainValidationException.When(string.IsNullOrWhiteSpace(imageUrl),"Invalid image url. Image url is required");
         DomainValidationException.When(imageUrl.Length < 5, "Invalid image url. Image url should have at least 5 characters");
-        DomainValidationException.When(imageUrl.Length > 100, "Invalid image url. Image url should a maximum of 100 characters");
+        DomainValidationException.When(imageUrl.Length > 300, "Invalid image url. Image url should a maximum of 100 characters");
         ImageUrl = imageUrl;
     }
 }

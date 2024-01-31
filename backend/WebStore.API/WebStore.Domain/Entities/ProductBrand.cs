@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Validation;
 
@@ -9,12 +10,15 @@ public sealed class ProductBrand : BaseEntity
     public ProductBrand(int id, string name) : base(id)
     {
         ValidateName(name);
+        Products = new Collection<Product>();
     }
     
     [Required]
     [MinLength(5)]
     [StringLength(30)]
     public string? Name { get; private set; }
+    
+    public ICollection<Product> Products { get; private set; }
 
     private void ValidateName(string name)
     {

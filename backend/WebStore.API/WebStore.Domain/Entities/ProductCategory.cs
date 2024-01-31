@@ -1,4 +1,5 @@
-﻿using WebStore.Domain.Entities.Base;
+﻿using System.Collections.ObjectModel;
+using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Validation;
 
 namespace WebStore.Domain.Entities;
@@ -8,9 +9,12 @@ public sealed class ProductCategory : BaseEntity
     public ProductCategory(int id, string name) : base(id)
     {
         ValidateName(name);
+        Products = new Collection<Product>();
     }
 
     public string? Name { get; private set; }
+    
+    public ICollection<Product> Products { get; private set; }
 
     private void ValidateName(string name)
     {
