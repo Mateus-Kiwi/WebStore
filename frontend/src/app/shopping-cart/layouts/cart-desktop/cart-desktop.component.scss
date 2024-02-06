@@ -1,0 +1,127 @@
+body {
+  background-color: #f5f5f5;
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.notifs{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+  justify-content: center;
+  margin: 4rem;
+
+}
+h3 {
+  font-size: 2.5rem;
+  color: #3c5fa9;
+}
+.products-container {
+  flex: 1;
+  width: 40vw;
+  height: 100%;
+}
+.product-cart-card {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  align-items: flex-start;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.75rem;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.img-container {
+  background-color: #3c5fa9;
+  width: 10rem;
+  min-width: 10rem;
+  height: 10rem;
+  min-height: 10rem;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+}
+.info-container{
+  padding-top: 0.3rem;
+  width: 100%;
+  line-height: 0.5;
+}
+.title{
+  font-weight: bold;
+  line-height: 0.75;
+}
+.price{
+  font-size: 1.5rem;
+}
+.summary{
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: fit-content;
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.summary-text-div{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+  padding-left: 1rem;
+  line-height: 0.7;
+  justify-content: center;
+
+}
+.line{
+  background-color: #3c5fa9;
+  height: 1px;
+
+}
+.summary-total{
+  margin-top: 0.7rem;
+  font-weight: bold;
+}
+.button-div{
+  margin: 1rem;
+  align-self: center;
+  display: flex;
+  border-radius: 0.6rem;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #3c5fa9 ;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+  width: 90%;
+  height: 3rem;
+
+  
+  &:hover {
+    background-color: #3c5fa97f;
+    transition: 0.3s;
+  }
+}
+h4{
+  user-select: none;
+}
+.summary-text{
+  margin-bottom: 2rem;
+}
+
+

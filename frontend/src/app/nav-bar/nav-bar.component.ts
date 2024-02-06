@@ -1,19 +1,24 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-// import { AccountService } from 'src/app/account/account.service';
-// import { BasketService } from 'src/app/basket/basket.service';
-// import { BasketItem } from 'src/app/models/basket';
+import { RouterModule } from '@angular/router';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { isMobile } from '../../utils/screen/screen-utils';
+import { NavBarMobileComponent } from "./layouts/nav-bar-mobile/nav-bar-mobile.component";
+import { NavBarDesktopComponent } from "./layouts/nav-bar-desktop/nav-bar-desktop.component";
+
 
 @Component({
-  selector: 'app-nav-bar',
-  standalone: true,
-  imports: [],
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+    selector: 'app-nav-bar',
+    standalone: true,
+    template: `
+  @if (isMobile) {
+    <app-nav-bar-mobile/>
+  }
+  @else {
+    <app-nav-bar-desktop/>
+  }`,
+    imports: [RouterModule, CollapseModule, CommonModule, NavBarMobileComponent, NavBarDesktopComponent]
 })
 export class NavBarComponent {
-  // constructor(public basketService: BasketService, public accountService:AccountService){}
-
-  // getCount(items: BasketItem[]){
-  //   return items.reduce((sum, item) => sum + item.quantity, 0);
-  // }
+  isMobile = isMobile();
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Interfaces;
+using WebStore.Domain.Repositories;
 using WebStore.Infra.Context;
 
 namespace WebStore.Data.RepositoriesImpl;
