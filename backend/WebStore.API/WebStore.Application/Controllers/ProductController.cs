@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
+using WebStore.API.Pagination;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Interfaces;
 
 namespace WebStore.API.Controllers;
 
@@ -31,37 +33,56 @@ public class ProductController : ControllerBase
         return Ok(products);
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> Create(int? id)
-    {
-        var product = await _service.GetById(id);
-
-        if (product == null)
-        {
-            return NotFound($"Product with Id {id} not found.");
-        }
-
-        return Ok(product);
-    }
-
     [HttpPost]
-    public async Task<IActionResult> Create(ProductDto product)
+    public async Task<IActionResult> Create([FromBody] ProductDto product)
     {
         await _service.Create(product);
         return Ok(product);
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, ProductDto product)
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid? id)
+    {
+        var product = await _service.GetById(id);
+
+        if (product == null)
+        {
+            throw new Exception($"Product with Id {id} not found.");
+        }
+        
+        return Ok(product);
+    }
+
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid id, ProductDto product)
     {
         await _service.Update(id, product);
         return Ok(product);
     }
 
     [HttpDelete]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(Guid? id)
     {
         await _service.Delete(id);
         return Ok();
+    }
+
+    [HttpGet("pagination")]
+    public async Task<IActionResult> GetWithPagination([FromQuery]ProductPagination pagination)
+    {
+        var products = await _service.GetWithPagination(pagination);
+
+        var metadata = new
+        {
+            products.TotalCount,
+            products.PageSize,
+            products.CurrentPage,
+            products.TotalPages,
+            products.HasNext,
+            products.HasPrevious
+        };
+
+        Response.Headers.Append("X-pagination", JsonConvert.SerializeObject(metadata));
+        return Ok(products);
     }
 }

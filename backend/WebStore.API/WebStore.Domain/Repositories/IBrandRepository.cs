@@ -1,5 +1,5 @@
 ﻿using WebStore.Domain.Entities;
-using WebStore.Domain.Interfaces.Base;
+using WebStore.Domain.Repositories.Base;
 
 namespace WebStore.Domain.Repositories;
 

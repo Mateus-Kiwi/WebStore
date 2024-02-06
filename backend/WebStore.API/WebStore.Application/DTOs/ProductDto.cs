@@ -1,33 +1,33 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
+
 
 namespace WebStore.API.DTOs;
 
-public class ProductDto
-{
+[DataContract]
+public record ProductDto(
     [Required]
     [MinLength(5)]
     [StringLength(30)]
-    public string? Name { get; private set; }
+    string Name,
     
     [Required]
     [MinLength(5)]
     [StringLength(50)]
-    public string? Description { get; private set; }
+    string Description, 
     
     [Required]
-    public decimal Price { get; private set; }
+    decimal Price, 
     
     [Required]
     [MinLength(5)]
-    [StringLength(100)]
-    public string? ImageUrl { get; private set; }
+    [StringLength(300)]
+    string ImageUrl,
     
     [Required]
-    [ForeignKey("BrandId")]
-    public int  BrandId { get; private set; }
+    Guid BrandId,
     
     [Required]
-    [ForeignKey("ProductCategoryId")]
-    public int CategoryId { get; private set; }
-}
+    Guid CategoryId
+    
+    ) { }

@@ -1,10 +1,10 @@
-﻿namespace WebStore.Domain.Interfaces.Base;
+﻿namespace WebStore.Domain.Repositories.Base;
 
 public interface IBaseRepository<T>
 {
     Task<IEnumerable<T>> GetAll();
-    Task<T> GetById(int? id);
+    Task<T> GetById(Guid? id);
     Task<T> Create(T type);
-    Task<T> Update(int? id, T type);
-    Task<T> Delete(int? id);
+    Task<T> Update(Guid? id, T type);
+    Task<T> Delete(Guid? id);
 }

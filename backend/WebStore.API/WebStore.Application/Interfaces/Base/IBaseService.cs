@@ -3,8 +3,8 @@
 public interface IBaseService<T>
 {
     Task<IEnumerable<T>> GetAll();
-    Task<T> GetById(int? id);
-    Task Create(T type);
-    Task Update(int? id, T type);
-    Task Delete(int? id);
+    Task<T> GetById(Guid? id);
+    Task<T> Create(T type);
+    Task Update(Guid? id, T type);
+    Task Delete(Guid? id);
 }

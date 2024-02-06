@@ -23,7 +23,7 @@ public class BrandRepository : IBrandRepository
         return brands;
     }
 
-    public async Task<ProductBrand> GetById(int? id)
+    public async Task<ProductBrand> GetById(Guid? id)
     {
         var brandById = await _context.Brands.FirstOrDefaultAsync(b => b.Id == id);
         if (brandById == null)
@@ -40,7 +40,7 @@ public class BrandRepository : IBrandRepository
        return brand;
     }
 
-    public async Task<ProductBrand> Update(int? id, ProductBrand brand)
+    public async Task<ProductBrand> Update(Guid? id, ProductBrand brand)
     {
         var brandToUpdate = await _context.Brands.FirstOrDefaultAsync(b => b.Id == id);
         if (brandToUpdate == null)
@@ -51,7 +51,7 @@ public class BrandRepository : IBrandRepository
         return brandToUpdate;
     }
 
-    public async Task<ProductBrand> Delete(int? id)
+    public async Task<ProductBrand> Delete(Guid? id)
     {
         var brandToDelete = await _context.Brands.FirstOrDefaultAsync(b => b.Id == id);
         _context.Remove(brandToDelete);

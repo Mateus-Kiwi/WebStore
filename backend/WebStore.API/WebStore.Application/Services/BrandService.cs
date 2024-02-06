@@ -13,6 +13,7 @@ public class BrandService : IBrandService
     public BrandService(IBrandRepository repository, IMapper mapper)
     {
         _repository = repository;
+        
         _mapper = mapper;
     }
     
@@ -22,25 +23,26 @@ public class BrandService : IBrandService
         return _mapper.Map<IEnumerable<BrandDto>>(brandEntities);
     }
 
-    public async Task<BrandDto> GetById(int? id)
+    public async Task<BrandDto> GetById(Guid? id)
     {
         var brandEntity = await _repository.GetById(id);
         return _mapper.Map<BrandDto>(brandEntity);
     }
 
-    public async Task Create(BrandDto brandDto)
+    public async Task<BrandDto> Create(BrandDto brandDto)
     {
         var brandEntity = _mapper.Map<ProductBrand>(brandDto);
         await _repository.Create(brandEntity);
+        return brandDto;
     }
 
-    public async Task Update(int? id, BrandDto brandDto)
+    public async Task Update(Guid? id, BrandDto brandDto)
     {
         var brandEntity = _mapper.Map<ProductBrand>(brandDto);
         await _repository.Update(id, brandEntity);
     }
 
-    public async Task Delete(int? id)
+    public async Task Delete(Guid? id)
     {
         await _repository.Delete(id);
     }

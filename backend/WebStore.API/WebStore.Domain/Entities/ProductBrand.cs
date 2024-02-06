@@ -7,7 +7,9 @@ namespace WebStore.Domain.Entities;
 
 public sealed class ProductBrand : BaseEntity
 {
-    public ProductBrand(int id, string name) : base(id)
+    public ProductBrand() {}
+    
+    public ProductBrand(Guid id, string name) : base(id)
     {
         ValidateName(name);
         Products = new Collection<Product>();
@@ -18,7 +20,8 @@ public sealed class ProductBrand : BaseEntity
     [StringLength(30)]
     public string? Name { get; private set; }
     
-    public ICollection<Product> Products { get; private set; }
+    
+    public ICollection<Product>? Products { get; private set; }
 
     private void ValidateName(string name)
     {

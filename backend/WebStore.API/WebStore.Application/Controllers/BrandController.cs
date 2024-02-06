@@ -23,8 +23,8 @@ public class BrandController : ControllerBase
         return Ok(brands);
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetById(int? id)
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid? id)
     {
         var brandById = await _service.GetById(id);
         if (brandById == null)
@@ -42,14 +42,14 @@ public class BrandController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update(int? id, BrandDto brand)
+    public async Task<IActionResult> Update(Guid? id, BrandDto brand)
     {
         await _service.Update(id, brand);
         return Ok(brand);
     }
 
     [HttpDelete]
-    public async Task<IActionResult> Delete(int? id)
+    public async Task<IActionResult> Delete(Guid? id)
     {
         await _service.Delete(id);
         return Ok();

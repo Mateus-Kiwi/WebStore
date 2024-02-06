@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebStore.API.Pagination;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Interfaces;
+using WebStore.Domain.Pagination;
+using WebStore.Domain.Repositories;
 using WebStore.Infra.Context;
 
 namespace WebStore.Data.RepositoriesImpl;
@@ -20,7 +22,7 @@ public class ProductRepository : IProductRepository
         return products;
     }
 
-    public async Task<Product> GetById(int? id)
+    public async Task<Product> GetById(Guid? id)
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         return product;
@@ -33,7 +35,7 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<Product> Update(int? id, Product product)
+    public async Task<Product> Update(Guid? id, Product product)
     {
         var productById = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         if (productById == null)
@@ -45,11 +47,21 @@ public class ProductRepository : IProductRepository
         return productById;
     }
 
-    public async Task<Product> Delete(int? id)
+    public async Task<Product> Delete(Guid? id)
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         _context.Remove(product);
         await _context.SaveChangesAsync();
         return product;
+    }
+
+    public async Task<PagedList<Product>> GetWithPagination(ProductPagination pagination)
+    {
+        var products = await GetAll();
+        var queryableProducts = products.OrderBy(p => p.Name).AsQueryable();
+        var orderedProducts = PagedList<Product>
+            .ToPagedList(queryableProducts, pagination.PageNumber, pagination.PageSize);
+        
+        return orderedProducts;
     }
 }

@@ -1,22 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebStore.Domain.Validation;
 
 namespace WebStore.Domain.Entities.Base;
 
 public abstract class BaseEntity 
 {
-    
-    protected BaseEntity(int id)
+    public BaseEntity() {}
+    protected BaseEntity(Guid id)
     {
         ValidateId(id);
     }
     
     [Key]
-    public int Id { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public Guid Id { get; set; }
 
-    private void ValidateId(int id)
+    private void ValidateId(Guid id)
     {
-        DomainValidationException.When(id < 0,"Id cant be negative");
+        DomainValidationException.When(string.IsNullOrEmpty(id.ToString()),"Invalid Guid. Guid is required");
+        DomainValidationException.When(string.IsNullOrWhiteSpace(id.ToString()),"Invalid Guid. Guid is required");
         Id = id;
     }
 }

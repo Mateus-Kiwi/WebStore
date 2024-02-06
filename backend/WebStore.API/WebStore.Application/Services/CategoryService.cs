@@ -23,25 +23,26 @@ public class CategoryService : ICategoryService
         return _mapper.Map<IEnumerable<CategoryDto>>(categoryEntites);
     }
 
-    public async Task<CategoryDto> GetById(int? id)
+    public async Task<CategoryDto> GetById(Guid? id)
     {
         var categoryEntity = await _repository.GetById(id);
         return _mapper.Map<CategoryDto>(categoryEntity);
     }
 
-    public async Task Create(CategoryDto categoryDto)
+    public async Task<CategoryDto> Create(CategoryDto categoryDto)
     {
         var categoryEntity = _mapper.Map<ProductCategory>(categoryDto);
         await _repository.Create(categoryEntity);
+        return categoryDto;
     }
 
-    public async Task Update(int? id, CategoryDto categoryDto)
+    public async Task Update(Guid? id, CategoryDto categoryDto)
     {
         var categoryEntity = _mapper.Map<ProductCategory>(categoryDto);
         await _repository.Update(id,categoryEntity);
     }
 
-    public async Task Delete(int? id)
+    public async Task Delete(Guid? id)
     {
         await _repository.Delete(id);
     }

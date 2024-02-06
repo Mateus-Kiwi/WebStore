@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Interfaces;
 using WebStore.Domain.Repositories;
 using WebStore.Infra.Context;
 
@@ -21,7 +20,7 @@ public class CategoryRepository : ICategoryRepository
         return categories;
     }
 
-    public async Task<ProductCategory> GetById(int? id)
+    public async Task<ProductCategory> GetById(Guid? id)
     {
         var productById = await _context.Categories.FirstOrDefaultAsync(p => p.Id == id);
         
@@ -40,7 +39,7 @@ public class CategoryRepository : ICategoryRepository
         return category;
     }
 
-    public async Task<ProductCategory> Update(int? id, ProductCategory category)
+    public async Task<ProductCategory> Update(Guid? id, ProductCategory category)
     {
         var categoryById = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
         
@@ -53,7 +52,7 @@ public class CategoryRepository : ICategoryRepository
         return categoryById;
     }
 
-    public async Task<ProductCategory> Delete(int? id)
+    public async Task<ProductCategory> Delete(Guid? id)
     {
         var categoryToDelete = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
         _context.Remove(categoryToDelete);

@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
+using WebStore.API.Pagination;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Interfaces;
+using WebStore.Domain.Pagination;
+using WebStore.Domain.Repositories;
 
 namespace WebStore.API.Services;
 
@@ -23,26 +25,34 @@ public class ProductService : IProductService
         return _mapper.Map<IEnumerable<ProductDto>>(productEntities);
     }
 
-    public async Task<ProductDto> GetById(int? id)
+    public async Task<ProductDto> GetById(Guid? id)
     {
         var productEntity = await _repository.GetById(id);
         return _mapper.Map<ProductDto>(productEntity);
     }
 
-    public async Task Create(ProductDto productDto)
+    public async Task<ProductDto> Create(ProductDto productDto)
     {
         var productEntity = _mapper.Map<Product>(productDto);
         await _repository.Create(productEntity);
+        return productDto;
+        
     }
     
-    public async Task Update(int? id, ProductDto productDto)
+    public async Task Update(Guid? id, ProductDto productDto)
     {
         var productEntity = _mapper.Map<Product>(productDto);
         await _repository.Update(id, productEntity);
     }
 
-    public async Task Delete(int? id)
+    public async Task Delete(Guid? id)
     {
         await _repository.Delete(id);
+    }
+
+    public async Task<PagedList<ProductDto>> GetWithPagination(ProductPagination pagination)
+    {
+        var products = await _repository.GetWithPagination(pagination);
+        return _mapper.Map<PagedList<ProductDto>>(products);
     }
 }

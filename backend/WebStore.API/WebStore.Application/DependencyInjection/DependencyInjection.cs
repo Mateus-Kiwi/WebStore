@@ -3,7 +3,6 @@ using WebStore.API.Interfaces;
 using WebStore.API.Mappings;
 using WebStore.API.Services;
 using WebStore.Data.RepositoriesImpl;
-using WebStore.Domain.Interfaces;
 using WebStore.Domain.Repositories;
 using WebStore.Infra.Context;
 using WebStore.IoC.Interfaces;
@@ -47,5 +46,5 @@ public class DependencyInjection : IDependencyInjection
         private static void AddAutoMapper(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(DomainToDtoMappingProfiles));
-        }
+        }              
 }

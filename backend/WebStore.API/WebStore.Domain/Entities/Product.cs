@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Validation;
 
@@ -7,16 +6,16 @@ namespace WebStore.Domain.Entities;
 
 public sealed class Product : BaseEntity
 {
-   
+
     [Required]
     [MinLength(5)]
     [StringLength(30)]
-    public string? Name { get; private set; }
+    public string Name { get; private set; } 
     
     [Required]
     [MinLength(5)]
     [StringLength(50)]
-    public string? Description { get; private set; }
+    public string Description { get; private set; }
     
     [Required]
     public decimal Price { get; private set; }
@@ -24,20 +23,22 @@ public sealed class Product : BaseEntity
     [Required]
     [MinLength(5)]
     [StringLength(300)]
-    public string? ImageUrl { get; private set; }
+    public string ImageUrl { get; private set; }
     
     [Required]
-    public int  BrandId { get; private set; }
+    public Guid  BrandId { get; private set; }
     
     public ProductBrand Brand { get; private set; }
     
     [Required]
-    public int CategoryId { get; private set; }
+    public Guid CategoryId { get; private set; }
     
     public ProductCategory Category { get; private set; }
-    
 
-    public Product(int id, string name, string description, decimal price, string imageUrl,int brandId, int categoryId) : base(id)
+
+    public Product() {}
+
+    public Product(Guid id, string name, string description, decimal price, string imageUrl,Guid brandId, Guid categoryId) : base(id)
     {
         Validate(name,description,price,imageUrl,brandId,categoryId);
     }
@@ -53,7 +54,7 @@ public sealed class Product : BaseEntity
         product.CategoryId = CategoryId;
     }
     
-    private void Validate(string name, string description, decimal price, string imageUrl, int brandId, int categoryId)
+    private void Validate(string name, string description, decimal price, string imageUrl, Guid brandId, Guid categoryId)
     {
         ValidateName(name);
         ValidateDescription(description);
@@ -63,14 +64,16 @@ public sealed class Product : BaseEntity
         ValidateCategoryId(categoryId);
     }
 
-    private void ValidateBrandId(int brandId)
+    private void ValidateBrandId(Guid brandId)
     {
-        DomainValidationException.When(brandId < 0, "Invalid Brand Id. Brand Id should not be negative");
+        DomainValidationException.When(string.IsNullOrEmpty(brandId.ToString()),"Invalid Guid. Guid is required");
+        DomainValidationException.When(string.IsNullOrWhiteSpace(brandId.ToString()),"Invalid Guid. Guid is required");
     }
     
-    private void ValidateCategoryId(int categoryId)
+    private void ValidateCategoryId(Guid categoryId)
     {
-        DomainValidationException.When(categoryId < 0, "Invalid Category Id. Category Id should not be negative");
+        DomainValidationException.When(string.IsNullOrEmpty(categoryId.ToString()),"Invalid Guid. Guid is required");
+        DomainValidationException.When(string.IsNullOrWhiteSpace(categoryId.ToString()),"Invalid Guid. Guid is required");
     }
 
 

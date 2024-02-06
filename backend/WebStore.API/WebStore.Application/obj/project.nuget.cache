@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NsseZ2Qu/Tv0jVQxBMgkqxGV7x9x0fVi/acjcfMAX8AtWHntXel7fl2S2R5qLh38A8MBHCda/L+dpatkelChfw==",
+  "dgSpecHash": "Fx/vJQfuFUaYfOrF7fuNFqtXIZTWHdkZHJ/CIO/WF2gk/aquMKBoXf9op8kW1Hh9cNT9LVoWEBnWRE0vffoQug==",
   "success": true,
   "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Application\\WebStore.Application.csproj",
   "expectedPackageFiles": [
@@ -34,6 +34,7 @@
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\npgsql\\8.0.1\\npgsql.8.0.1.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.0\\npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

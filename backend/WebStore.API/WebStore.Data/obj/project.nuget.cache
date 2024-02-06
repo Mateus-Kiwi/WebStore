@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1apdi8IT6SoXxlblcaYJ8ke0WVTK8oFxJeodnmrhp6N7pFx6NzeJvHlsa74mAaXzVo3lr2lRlUu5iv7H2KrWFg==",
+  "dgSpecHash": "IBFxSisKQqeCcY5M5mJtTaFtIUlOP8bREJrn5jtV3MIHNV9d0V8SwmG1kYF9io4eM295dcdMzVyHEK+AtwurtA==",
   "success": true,
   "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\augusto.costa\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",

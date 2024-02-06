@@ -2,7 +2,6 @@
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Interfaces;
 using WebStore.Domain.Repositories;
 
 namespace WebStore.API.Controllers;
@@ -31,8 +30,8 @@ public class CategoryController : ControllerBase
         return Ok(categories);
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetById(int id)
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid id)
     {
         var categoryById = await _service.GetById(id);
 
@@ -51,15 +50,15 @@ public class CategoryController : ControllerBase
         return Ok(category);
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, CategoryDto category)
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid? id, CategoryDto category)
     {
         await _service.Update(id, category);
         return Ok(category);
     }
 
     [HttpDelete]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Delete(Guid? id)
     {
         await _service.Delete(id);
         return Ok();

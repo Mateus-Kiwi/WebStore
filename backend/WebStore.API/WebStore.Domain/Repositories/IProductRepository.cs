@@ -1,9 +1,11 @@
-﻿using WebStore.Domain.Entities;
-using WebStore.Domain.Interfaces.Base;
+﻿using WebStore.API.Pagination;
+using WebStore.Domain.Entities;
+using WebStore.Domain.Pagination;
+using WebStore.Domain.Repositories.Base;
 
-namespace WebStore.Domain.Interfaces;
+namespace WebStore.Domain.Repositories;
 
 public interface IProductRepository : IBaseRepository<Product>
 {
-    
+    Task<PagedList<Product>> GetWithPagination(ProductPagination pagination);
 }

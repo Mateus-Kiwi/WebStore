@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "p5DcYGNyKYhzeoXXkWp4WunjIAhKQZXSP1IhNm+TuvySIaRXO38Kks97Szy+TKNJ00Qz5DmPQeM0dcyzZbciMQ==",
+  "dgSpecHash": "8luTOYckQ/fcATfKOfJrgJPlX6sfOhEQfBU2vh9IfqmJRzYqeGuDphg277+/Da6/qTBjRiBaXRFGhpSloS4gFg==",
   "success": true,
   "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\augusto.costa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
-    "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
