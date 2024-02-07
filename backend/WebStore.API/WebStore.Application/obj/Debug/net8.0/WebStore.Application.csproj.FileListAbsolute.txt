@@ -114,3 +114,4 @@ C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Applicati
 C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Application\obj\Debug\net8.0\ref\WebStore.Application.dll
 C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Application\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Application\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\augusto.costa\projects\WebStore\backend\WebStore.API\WebStore.Application\bin\Debug\net8.0\Newtonsoft.Json.dll
