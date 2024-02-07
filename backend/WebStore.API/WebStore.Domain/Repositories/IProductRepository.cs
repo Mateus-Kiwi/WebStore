@@ -1,5 +1,4 @@
-﻿using WebStore.API.Pagination;
-using WebStore.Domain.Entities;
+﻿using WebStore.Domain.Entities;
 using WebStore.Domain.Pagination;
 using WebStore.Domain.Repositories.Base;
 
