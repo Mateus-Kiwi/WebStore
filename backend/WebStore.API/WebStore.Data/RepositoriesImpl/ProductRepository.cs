@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebStore.API.Pagination;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Pagination;
 using WebStore.Domain.Repositories;
@@ -58,10 +57,9 @@ public class ProductRepository : IProductRepository
     public async Task<PagedList<Product>> GetWithPagination(ProductPagination pagination)
     {
         var products = await GetAll();
-        var queryableProducts = products.OrderBy(p => p.Name).AsQueryable();
+        var queryableProducts = products.OrderBy(p => p.Id).AsQueryable();
         var orderedProducts = PagedList<Product>
             .ToPagedList(queryableProducts, pagination.PageNumber, pagination.PageSize);
-        
         return orderedProducts;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
-using WebStore.API.Pagination;
 using WebStore.Domain.Entities;
 using WebStore.Domain.Pagination;
 using WebStore.Domain.Repositories;
@@ -52,7 +51,17 @@ public class ProductService : IProductService
 
     public async Task<PagedList<ProductDto>> GetWithPagination(ProductPagination pagination)
     {
-        var products = await _repository.GetWithPagination(pagination);
-        return _mapper.Map<PagedList<ProductDto>>(products);
+        var productsPaged = await _repository.GetWithPagination(pagination);
+
+        var productsDto = _mapper.Map<IEnumerable<ProductDto>>(productsPaged).ToList();
+
+        var productsDtoPaged = new PagedList<ProductDto>(
+            productsDto,
+            productsPaged.TotalCount,
+            productsPaged.CurrentPage,
+            productsPaged.PageSize
+        );
+
+        return productsDtoPaged;
     }
 }
