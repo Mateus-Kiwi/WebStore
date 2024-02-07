@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
-using WebStore.API.Pagination;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Pagination;
 
 namespace WebStore.API.Controllers;
 
