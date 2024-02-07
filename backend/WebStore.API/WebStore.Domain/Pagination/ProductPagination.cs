@@ -1,4 +1,4 @@
-﻿namespace WebStore.API.Pagination;
+﻿namespace WebStore.Domain.Pagination;
 
 public class ProductPagination
 {
