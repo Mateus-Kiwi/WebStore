@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Pagination;
 using WebStore.Domain.Repositories;
 using WebStore.Infra.Context;
 
@@ -57,6 +58,14 @@ public class BrandRepository : IBrandRepository
         _context.Remove(brandToDelete);
         await _context.SaveChangesAsync();
         return brandToDelete;
+    }
 
+    public async Task<PagedList<ProductBrand>> GetWithPagination(BrandParams brandParams)
+    {
+        var getBrands = await GetAll();
+        var brands = getBrands.OrderBy(b => b.Name).AsQueryable();
+        var orderedBrands = PagedList<ProductBrand>
+            .ToPagedList(brands,brandParams.PageNumber,brandParams.PageSize);
+        return orderedBrands;
     }
 }

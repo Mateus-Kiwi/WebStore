@@ -6,5 +6,5 @@ namespace WebStore.API.Interfaces;
 
 public interface IProductService : IBaseService<ProductDto>
 {
-    Task<PagedList<ProductDto>> GetWithPagination(ProductPagination pagination);
+    Task<PagedList<ProductDto>> GetWithPagination(ProductParams productParams);
 }

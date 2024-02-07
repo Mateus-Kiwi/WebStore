@@ -2,6 +2,7 @@
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Pagination;
 using WebStore.Domain.Repositories;
 
 namespace WebStore.API.Services;
@@ -45,5 +46,11 @@ public class CategoryService : ICategoryService
     public async Task Delete(Guid? id)
     {
         await _repository.Delete(id);
+    }
+
+    public async Task<PagedList<CategoryDto>> GetWithPagination(CategoryParams categoryParams)
+    {
+       var categoryEntities = await _repository.GetWithPagination(categoryParams);
+       return _mapper.Map<PagedList<CategoryDto>>(categoryEntities);
     }
 }

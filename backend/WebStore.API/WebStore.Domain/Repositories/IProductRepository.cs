@@ -6,5 +6,5 @@ namespace WebStore.Domain.Repositories;
 
 public interface IProductRepository : IBaseRepository<Product>
 {
-    Task<PagedList<Product>> GetWithPagination(ProductPagination pagination);
+    Task<PagedList<Product>> GetWithPagination(ProductParams productParams);
 }

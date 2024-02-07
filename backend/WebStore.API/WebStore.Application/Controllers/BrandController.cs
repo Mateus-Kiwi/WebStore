@@ -2,6 +2,7 @@
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Pagination;
 
 namespace WebStore.API.Controllers;
 
@@ -53,5 +54,12 @@ public class BrandController : ControllerBase
     {
         await _service.Delete(id);
         return Ok();
+    }
+
+    [HttpGet("pagination")]
+    public async Task<IActionResult> GetWithPagination(BrandParams brandParams)
+    {
+        var brands = await _service.GetWithPagination(brandParams);
+        return Ok(brands);
     }
 }

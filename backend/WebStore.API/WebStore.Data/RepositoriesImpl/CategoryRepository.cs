@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Pagination;
 using WebStore.Domain.Repositories;
 using WebStore.Infra.Context;
 
@@ -58,5 +59,14 @@ public class CategoryRepository : ICategoryRepository
         _context.Remove(categoryToDelete);
         await _context.SaveChangesAsync();
         return categoryToDelete;
+    }
+
+    public async Task<PagedList<ProductCategory>> GetWithPagination(CategoryParams categoryParams)
+    {
+        var getCategories = await GetAll();
+        var categories = getCategories.OrderBy(c => c.Name).AsQueryable();
+        var orderedCategories = PagedList<ProductCategory>
+            .ToPagedList(categories,categoryParams.PageNumber,categoryParams.PageSize);
+        return orderedCategories;
     }
 }

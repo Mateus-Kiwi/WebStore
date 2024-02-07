@@ -49,9 +49,9 @@ public class ProductService : IProductService
         await _repository.Delete(id);
     }
 
-    public async Task<PagedList<ProductDto>> GetWithPagination(ProductPagination pagination)
+    public async Task<PagedList<ProductDto>> GetWithPagination(ProductParams productParams)
     {
-        var productsPaged = await _repository.GetWithPagination(pagination);
+        var productsPaged = await _repository.GetWithPagination(productParams);
 
         var productsDto = _mapper.Map<IEnumerable<ProductDto>>(productsPaged).ToList();
 

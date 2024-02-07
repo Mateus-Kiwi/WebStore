@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Pagination;
 using WebStore.Domain.Repositories;
 
 namespace WebStore.API.Controllers;
@@ -62,5 +64,24 @@ public class CategoryController : ControllerBase
     {
         await _service.Delete(id);
         return Ok();
+    }
+
+    [HttpGet("pagination")]
+    public async Task<IActionResult> GetWithPagination([FromQuery]CategoryParams categoryParams)
+    {
+        var categories = await _service.GetWithPagination(categoryParams);
+
+        var metadata = new
+        {
+            categories.TotalCount,
+            categories.PageSize,
+            categories.CurrentPage,
+            categories.TotalPages,
+            categories.HasNext,
+            categories.HasPrevious
+        };
+        
+        Response.Headers.Append("X-pagination", JsonConvert.SerializeObject(metadata));
+        return Ok(categories);
     }
 }

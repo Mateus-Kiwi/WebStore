@@ -54,12 +54,12 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<PagedList<Product>> GetWithPagination(ProductPagination pagination)
+    public async Task<PagedList<Product>> GetWithPagination(ProductParams productParams)
     {
         var products = await GetAll();
         var queryableProducts = products.OrderBy(p => p.Id).AsQueryable();
         var orderedProducts = PagedList<Product>
-            .ToPagedList(queryableProducts, pagination.PageNumber, pagination.PageSize);
+            .ToPagedList(queryableProducts, productParams.PageNumber, productParams.PageSize);
         return orderedProducts;
     }
 }

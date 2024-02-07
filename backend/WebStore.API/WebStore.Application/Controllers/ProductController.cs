@@ -68,9 +68,9 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet("pagination")]
-    public async Task<IActionResult> GetWithPagination([FromQuery]ProductPagination pagination)
+    public async Task<IActionResult> GetWithPagination([FromQuery]ProductParams productParams)
     {
-        var products = await _service.GetWithPagination(pagination);
+        var products = await _service.GetWithPagination(productParams);
 
         var metadata = new
         {

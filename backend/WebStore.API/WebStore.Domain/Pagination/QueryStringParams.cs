@@ -1,10 +1,10 @@
 ﻿namespace WebStore.Domain.Pagination;
 
-public class ProductPagination
+public class QueryStringParams
 {
     private const int maxPageSize = 50;
     public int PageNumber { get; set; } = 1;
-    private int _pageSize;
+    private int _pageSize = maxPageSize;
     public int PageSize
     {
         get
@@ -16,6 +16,4 @@ public class ProductPagination
             _pageSize = (value > maxPageSize) ? maxPageSize : value;
         }
     }
-    
-    
 }
