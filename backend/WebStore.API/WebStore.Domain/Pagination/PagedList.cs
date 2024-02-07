@@ -10,11 +10,14 @@ public class PagedList<T> : List<T> where T : class
     public bool HasPrevious => CurrentPage > 1;
     public bool HasNext => CurrentPage < TotalPages;
 
+    public PagedList() {}
+    
     public PagedList(List<T> items, int currentPage, int totalPages, int totalCount)
     {
         TotalCount = totalCount;
         CurrentPage = currentPage;
         TotalPages = (int)Math.Ceiling(totalCount / (double)PageSize);
+        
         AddRange(items);
     }
 
