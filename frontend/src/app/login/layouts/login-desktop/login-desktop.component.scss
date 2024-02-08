@@ -1,0 +1,119 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img-div{
+  width: 100vw;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+.background{
+  width: 100%;
+  height: auto;
+  filter: blur(10px);
+}
+.login{
+  position: fixed;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 5;
+  width: 40vw;
+  height: 70vh;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.form-div{
+  padding: 10%;
+
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  background-color: #f5f5f5;
+  border: none;
+  height: 3rem;
+  width: 100%;
+  padding-left: 5% ;
+  border-radius: 1rem;
+  margin: 0.5rem;
+
+    &:focus{
+      outline: none
+    }
+}
+h2{
+  color: #3c5fa9;
+  align-self: flex-start;
+  margin-bottom: 10%;
+}
+
+.login-btn{
+
+  font-size: 1.2rem;
+  height: 3rem;
+  margin: 0.5rem;
+  width: 100%;
+  background-color: #3c5fa9;
+  border: none;
+  color: #ffffff;
+  border-radius: 1rem;
+  &:active{
+    background-color: #3c5fa97f;
+    transition: 0.3s;
+  }
+}
+h6{
+  color: #ababab;
+  margin: 0.5rem;
+}
+.forgot-pass{
+  background-color: transparent;
+  border: none;
+  align-self: flex-start;
+  color: #3c5fa9;
+  margin: 0.2rem;
+}
+.google-facebook-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.7rem;
+
+}
+.socials-btn{
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  height: 3rem;
+  margin: 0.5rem;
+  width: 100%;
+  background-color: #3c5fa9;
+  border: none;
+  color: #ffffff;
+  border-radius: 1rem;
+  &:active{
+    background-color: #3c5fa97f;
+    transition: 0.3s;
+  }
+}
+
+.logo{
+  height: 50%;
+}
+.fb-logo{
+  height: 80%;
+}
+.create-acc{
+  align-self: flex-start;
+  margin: 0.2rem;
+}

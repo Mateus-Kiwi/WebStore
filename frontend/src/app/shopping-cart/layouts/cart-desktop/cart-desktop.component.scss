@@ -1,5 +1,5 @@
 body {
-  background-color: #f5f5f5;
+  background-color: #fff;
   margin-left: 4rem;
   display: flex;
   flex-direction: column;
@@ -36,14 +36,13 @@ h3 {
   flex: 3;
   display: flex;
   flex-direction: row;
-  background-color: #fff;
+  background-color: #f5f5f5;
   align-items: flex-start;
   padding: 1rem;
   margin-bottom: 0.5rem;
   border-radius: 0.75rem;
   width: 100%;
   height: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .img-container {
   background-color: #3c5fa9;
@@ -73,8 +72,7 @@ h3 {
   width: 20vw;
   height: fit-content;
   border-radius: 1rem;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
 
 }
 
@@ -111,7 +109,7 @@ h3 {
   width: 90%;
   height: 3rem;
 
-  
+
   &:hover {
     background-color: #3c5fa97f;
     transition: 0.3s;
