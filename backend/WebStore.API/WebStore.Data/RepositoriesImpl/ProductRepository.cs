@@ -52,4 +52,16 @@ public class ProductRepository : IProductRepository
         await _context.SaveChangesAsync();
         return product;
     }
+<<<<<<< HEAD
+=======
+
+    public async Task<PagedList<Product>> GetWithPagination(ProductParams productParams)
+    {
+        var products = await GetAll();
+        var queryableProducts = products.OrderBy(p => p.Id).AsQueryable();
+        var orderedProducts = PagedList<Product>
+            .ToPagedList(queryableProducts, productParams.PageNumber, productParams.PageSize);
+        return orderedProducts;
+    }
+>>>>>>> a4b5d6a1ee308cf9bc5d5ddb9145fb6bcd281dbc
 }
