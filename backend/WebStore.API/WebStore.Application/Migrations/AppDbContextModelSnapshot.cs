@@ -31,6 +31,9 @@ namespace WebStore.API.Migrations
                     b.Property<Guid>("BrandId")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("BrandName")
+                        .HasColumnType("text");
+
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uuid");
 
