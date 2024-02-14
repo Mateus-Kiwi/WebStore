@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 
 namespace WebStore.API.DTOs;
@@ -23,6 +24,9 @@ public record ProductDto(
     [MinLength(5)]
     [StringLength(300)]
     string ImageUrl,
+    
+    [property: JsonIgnore]
+    string? BrandName,
     
     [Required]
     Guid BrandId,

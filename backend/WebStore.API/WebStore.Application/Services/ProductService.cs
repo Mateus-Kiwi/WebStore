@@ -64,4 +64,16 @@ public class ProductService : IProductService
 
         return productsDtoPaged;
     }
+
+    public async Task<PagedList<ProductDto>> GetWithPriceFilter(ProductsPriceFilter priceFilter)
+    {
+        var products = await _repository.GetWithPriceFilter(priceFilter);
+        return _mapper.Map<PagedList<ProductDto>>(products);
+    }
+
+    public async Task<PagedList<ProductDto>> GetProductsByBrandNameAsync(QueryStringParams query, string brandName)
+    {
+        var products = await _repository.GetProductsByBrandNameAsync(query,brandName);
+        return _mapper.Map<PagedList<ProductDto>>(products);
+    }
 }

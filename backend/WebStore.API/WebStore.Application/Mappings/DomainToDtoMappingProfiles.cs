@@ -15,6 +15,7 @@ public class DomainToDtoMappingProfiles : Profile
                 src.Description,
                 src.Price,
                 src.ImageUrl,
+                src.BrandName,
                 src.BrandId,
                 src.CategoryId
             )).ReverseMap();

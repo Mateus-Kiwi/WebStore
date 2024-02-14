@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using WebStore.Domain.Validation;
 
 namespace WebStore.Domain.Entities.Base;
@@ -14,6 +15,7 @@ public abstract class BaseEntity
     
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [JsonIgnore]
     public Guid Id { get; set; }
 
     private void ValidateId(Guid id)

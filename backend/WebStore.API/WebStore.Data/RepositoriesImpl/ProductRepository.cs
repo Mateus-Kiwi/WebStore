@@ -14,7 +14,7 @@ public class ProductRepository : IProductRepository
     {
         _context = context;
     }
-    
+
     public async Task<IEnumerable<Product>> GetAll()
     {
         var products = await _context.Products.ToListAsync();
@@ -29,6 +29,8 @@ public class ProductRepository : IProductRepository
 
     public async Task<Product> Create(Product product)
     {
+        var brand = await _context.Brands.FirstOrDefaultAsync(b => b.Id == product.BrandId);
+        product.BrandName = brand.Name;
         _context.Products.AddAsync(product);
         await _context.SaveChangesAsync();
         return product;
@@ -58,8 +60,80 @@ public class ProductRepository : IProductRepository
     {
         var products = await GetAll();
         var queryableProducts = products.OrderBy(p => p.Id).AsQueryable();
-        var orderedProducts = PagedList<Product>
-            .ToPagedList(queryableProducts, productParams.PageNumber, productParams.PageSize);
+        var orderedProducts = PagedList<Product>.ToPagedList(
+            queryableProducts,
+            productParams.PageNumber,
+            productParams.PageSize
+        );
         return orderedProducts;
+    }
+
+    public async Task<PagedList<Product>> GetWithPriceFilter(ProductsPriceFilter priceFilter)
+    {
+        var getProducts = await GetAll();
+        var products = getProducts.AsQueryable();
+
+        if (priceFilter.Price.HasValue && !string.IsNullOrEmpty(priceFilter.PriceCriteria))
+        {
+            if (priceFilter.PriceCriteria.Equals("greater", StringComparison.OrdinalIgnoreCase))
+            {
+                products = products
+                    .Where(p => p.Price > priceFilter.Price.Value)
+                    .OrderBy(p => p.Price);
+            }
+
+            if (priceFilter.PriceCriteria.Equals("smaller", StringComparison.OrdinalIgnoreCase))
+            {
+                products = products
+                    .Where(p => p.Price < priceFilter.Price.Value)
+                    .OrderBy(p => p.Price);
+            }
+
+            if (priceFilter.PriceCriteria.Equals("equal", StringComparison.OrdinalIgnoreCase))
+            {
+                products = products
+                    .Where(p => p.Price == priceFilter.Price.Value)
+                    .OrderBy(p => p.Price);
+            }
+        }
+
+        var filteredProducts = PagedList<Product>.ToPagedList(
+            products,
+            priceFilter.PageNumber,
+            priceFilter.PageSize
+        );
+
+        return filteredProducts;
+    }
+
+    public async Task<Guid> GetBrandIdByName(string? brandName)
+    {
+        var brand = await _context.Brands.FirstOrDefaultAsync(b => b.Name == brandName);
+        if (brand == null)
+        {
+            throw new Exception($"Brand with name: {brand.Name} not found.");
+        }
+        return brand.Id;
+    }
+
+    public async Task<PagedList<Product>> GetProductsByBrandNameAsync(
+        QueryStringParams query,
+        string brandName
+    )
+    {
+        var brandId = await GetBrandIdByName(brandName);
+        var getProducts = await _context
+            .Products.Include(p => p.Brand)
+            .Where(p => p.Brand.Id == brandId)
+            .ToListAsync();
+
+        var products = getProducts.AsQueryable();
+        var filteredProducts = PagedList<Product>.ToPagedList(
+            products,
+            query.PageNumber,
+            query.PageSize
+        );
+
+        return filteredProducts;
     }
 }

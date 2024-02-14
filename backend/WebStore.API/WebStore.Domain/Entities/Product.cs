@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Annotations;
 using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Validation;
 
@@ -30,10 +33,14 @@ public sealed class Product : BaseEntity
     
     public ProductBrand Brand { get; private set; }
     
+    public string? BrandName { get; set; }
+    
     [Required]
     public Guid CategoryId { get; private set; }
     
     public ProductCategory Category { get; private set; }
+    
+    public string? CategoryName { get; set; }
 
 
     public Product() {}
@@ -41,9 +48,9 @@ public sealed class Product : BaseEntity
     public Product(Guid id, string name, string description, decimal price, string imageUrl,Guid brandId, Guid categoryId) : base(id)
     {
         Validate(name,description,price,imageUrl,brandId,categoryId);
+        Brand.Id = BrandId;
     }
-
-
+    
     public void UpdateProduct(Product product)
     {
         product.Name = Name;
