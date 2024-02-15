@@ -53,10 +53,10 @@ public class ProductRepository : IProductRepository
 
     public async Task<Product> Delete(Guid? id)
     {
-        var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
-        _context.Remove(product);
+        var productToDelete = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+        _context.Products.Remove(productToDelete);
         await _context.SaveChangesAsync();
-        return product;
+        return productToDelete;
     }
 
     public async Task<PagedList<Product>> GetWithPagination(ProductParams productParams)
