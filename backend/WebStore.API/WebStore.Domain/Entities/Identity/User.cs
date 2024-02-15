@@ -44,15 +44,20 @@ public class User : BaseEntity
     
     public User(Guid id, string firstName, string lastName, string username, string password, string email, string cpf) : base(id)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        Username = username;
-        Password = password;
-        Email = email;
-        Cpf = cpf;
+        ValidateUser(firstName,lastName,username,password,email,cpf);
     }
 
-    private void ValidateName(string firstName)
+    private void ValidateUser(string firstName, string lastName, string username, string password, string email, string cpf)
+    {
+        ValidateFirstName(firstName);
+        ValidateLastName(lastName);
+        ValidateUserName(username);
+        ValidatePassword(password);
+        ValidateEmail(email);
+        ValidateCPF(cpf);
+    }
+    
+    private void ValidateFirstName(string firstName)
     {
         DomainValidationException.When(string.IsNullOrEmpty(firstName),"First name is required");
         DomainValidationException.When(string.IsNullOrWhiteSpace(firstName),"First name is required");
@@ -126,5 +131,53 @@ public class User : BaseEntity
         }
 
         Email = email;
+    }
+
+    private void ValidateCPF(string cpf)
+    {
+        string cleanedCPF = Regex.Replace(cpf, @"[^\d]", "");
+        
+        if (cleanedCPF.Length != 11)
+        {
+            throw new DomainValidationException("Invalid CPF length.");
+        }
+        
+        if (new string(cleanedCPF[0], 11) == cleanedCPF)
+        {
+            throw new DomainValidationException("Invalid CPF.");
+        }
+        
+        int sum = 0;
+        for (int i = 0; i < 9; i++)
+        {
+            sum += int.Parse(cleanedCPF[i].ToString()) * (10 - i);
+        }
+        int remainder = sum % 11;
+        int firstDigit = remainder < 2 ? 0 : 11 - remainder;
+        
+        if (firstDigit != int.Parse(cleanedCPF[9].ToString()))
+        {
+            throw new DomainValidationException("Invalid CPF.");
+        }
+        
+        sum = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            sum += int.Parse(cleanedCPF[i].ToString()) * (11 - i);
+        }
+        remainder = sum % 11;
+        int secondDigit = remainder < 2 ? 0 : 11 - remainder;
+        
+        if (secondDigit != int.Parse(cleanedCPF[10].ToString()))
+        {
+            throw new DomainValidationException("Invalid CPF.");
+        }
+        
+        Cpf = cpf;
+    }
+
+    public void UpdateUser(User user)
+    {
+        ValidateUser(user.FirstName,user.LastName,user.Username,user.Password,user.Email,user.Cpf);
     }
 }
