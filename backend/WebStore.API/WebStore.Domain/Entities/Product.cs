@@ -53,12 +53,7 @@ public sealed class Product : BaseEntity
     
     public void UpdateProduct(Product product)
     {
-        product.Name = Name;
-        product.Description = Description;
-        product.ImageUrl = ImageUrl;
-        product.Price = Price;
-        product.BrandId = BrandId;
-        product.CategoryId = CategoryId;
+        Validate(product.Name, product.Description, product.Price, product.ImageUrl, product.BrandId, product.CategoryId);
     }
     
     private void Validate(string name, string description, decimal price, string imageUrl, Guid brandId, Guid categoryId)
