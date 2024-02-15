@@ -111,4 +111,12 @@ public class ProductController : ControllerBase
         var products = await _service.GetProductsByBrandNameAsync(query,brandName);
         return Ok(products);
     }
+
+    [HttpGet("filter/category/pagination")]
+    public async Task<IActionResult> GetProductsByCategoryNameAsync([FromQuery] QueryStringParams query,
+        [FromQuery] string categoryName)
+    {
+        var products = await _service.GetProductsByCategoryNameAsync(query, categoryName);
+        return Ok(products);
+    }
 }

@@ -30,7 +30,10 @@ public class ProductRepository : IProductRepository
     public async Task<Product> Create(Product product)
     {
         var brand = await _context.Brands.FirstOrDefaultAsync(b => b.Id == product.BrandId);
-        product.BrandName = brand.Name;
+        product.BrandName = brand?.Name;
+        var category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == product.CategoryId);
+        product.CategoryName = category?.Name;
+        
         _context.Products.AddAsync(product);
         await _context.SaveChangesAsync();
         return product;
@@ -115,16 +118,41 @@ public class ProductRepository : IProductRepository
         }
         return brand.Id;
     }
+    
+    public async Task<Guid> GetCategoryIdByName(string? categoryName)
+    {
+        var category = await _context.Categories.FirstOrDefaultAsync(b => b.Name == categoryName);
+        if (category == null)
+        {
+            throw new Exception($"Category with name: {category.Name} not found.");
+        }
+        return category.Id;
+    }
 
-    public async Task<PagedList<Product>> GetProductsByBrandNameAsync(
-        QueryStringParams query,
-        string brandName
-    )
+    public async Task<PagedList<Product>> GetProductsByBrandNameAsync(QueryStringParams query, string brandName)
     {
         var brandId = await GetBrandIdByName(brandName);
-        var getProducts = await _context
-            .Products.Include(p => p.Brand)
+        var getProducts = await _context.Products
+            .Include(p => p.Brand)
             .Where(p => p.Brand.Id == brandId)
+            .ToListAsync();
+
+        var products = getProducts.AsQueryable();
+        var filteredProducts = PagedList<Product>.ToPagedList(
+            products,
+            query.PageNumber,
+            query.PageSize
+        );
+        
+        return filteredProducts;
+    }
+
+    public async Task<PagedList<Product>> GetProductsByCategoryNameAsync(QueryStringParams query, string categoryName)
+    {
+        var categoryId = await GetCategoryIdByName(categoryName);
+        var getProducts = await _context.Products
+            .Include(p => p.Category)
+            .Where(p => p.Category.Id == categoryId)
             .ToListAsync();
 
         var products = getProducts.AsQueryable();
