@@ -12,4 +12,16 @@
       <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="ValueObjects\Identity\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ValueObjects\Identity\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ValueObjects\Identity\**" />
+    </ItemGroup>
+
 </Project>

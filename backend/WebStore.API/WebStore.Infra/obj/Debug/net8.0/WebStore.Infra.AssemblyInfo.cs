@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebStore.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4b5d6a1ee308cf9bc5d5ddb9145fb6bcd281dbc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebStore.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebStore.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

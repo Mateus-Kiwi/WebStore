@@ -13,9 +13,6 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Microsoft.AspNetCore.OpenApi")]
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Swashbuckle.AspNetCore.Annotations")]
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Swashbuckle.AspNetCore.SwaggerGen")]
-[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("WebStore.Data")]
-[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("WebStore.Domain")]
-[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("WebStore.Infra")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 
