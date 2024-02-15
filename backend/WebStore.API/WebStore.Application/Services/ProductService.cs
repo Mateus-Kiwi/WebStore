@@ -76,4 +76,10 @@ public class ProductService : IProductService
         var products = await _repository.GetProductsByBrandNameAsync(query,brandName);
         return _mapper.Map<PagedList<ProductDto>>(products);
     }
+
+    public async Task<PagedList<ProductDto>> GetProductsByCategoryNameAsync(QueryStringParams query, string categoryName)
+    {
+        var products = await _repository.GetProductsByCategoryNameAsync(query, categoryName);
+        return _mapper.Map<PagedList<ProductDto>>(products);
+    }
 }
