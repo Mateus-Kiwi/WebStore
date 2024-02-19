@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Entities.Identity;
 
 namespace WebStore.Infra.Context;
 
