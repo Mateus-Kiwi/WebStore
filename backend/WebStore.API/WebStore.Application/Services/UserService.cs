@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
-using WebStore.Domain.Entities.Identity;
+using WebStore.Domain.Entities;
 using WebStore.Domain.Repositories;
 
 namespace WebStore.API.Services;

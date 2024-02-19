@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebStore.API.DTOs;
 using WebStore.API.Interfaces;
-using WebStore.Domain.Entities.Identity;
 
 namespace WebStore.API.Controllers;
 

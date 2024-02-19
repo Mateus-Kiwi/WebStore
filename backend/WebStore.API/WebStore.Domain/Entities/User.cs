@@ -4,7 +4,7 @@ using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Validation;
 using WebStore.Domain.ValueObjects;
 
-namespace WebStore.Domain.Entities.Identity;
+namespace WebStore.Domain.Entities;
 
 public class User : BaseEntity
 {
