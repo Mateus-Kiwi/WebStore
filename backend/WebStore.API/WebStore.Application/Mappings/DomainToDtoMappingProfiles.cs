@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using WebStore.API.DTOs;
 using WebStore.Domain.Entities;
-using WebStore.Domain.Entities.Identity;
-using WebStore.Domain.Pagination;
 
 namespace WebStore.API.Mappings;
 
