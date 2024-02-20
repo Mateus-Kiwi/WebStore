@@ -35,13 +35,12 @@ public class ProductService : IProductService
         var productEntity = _mapper.Map<Product>(productDto);
         await _repository.Create(productEntity);
         return productDto;
-        
     }
     
     public async Task Update(Guid? id, ProductDto productDto)
     {
         var productEntity = _mapper.Map<Product>(productDto);
-        await _repository.Update(id, productEntity);
+        await _repository.Update(id, productEntity); 
     }
 
     public async Task Delete(Guid? id)
@@ -63,5 +62,23 @@ public class ProductService : IProductService
         );
 
         return productsDtoPaged;
+    }
+
+    public async Task<PagedList<ProductDto>> GetWithPriceFilter(ProductsPriceFilter priceFilter)
+    {
+        var products = await _repository.GetWithPriceFilter(priceFilter);
+        return _mapper.Map<PagedList<ProductDto>>(products);
+    }
+
+    public async Task<PagedList<ProductDto>> GetProductsByBrandNameAsync(QueryStringParams query, string brandName)
+    {
+        var products = await _repository.GetProductsByBrandNameAsync(query,brandName);
+        return _mapper.Map<PagedList<ProductDto>>(products);
+    }
+
+    public async Task<PagedList<ProductDto>> GetProductsByCategoryNameAsync(QueryStringParams query, string categoryName)
+    {
+        var products = await _repository.GetProductsByCategoryNameAsync(query, categoryName);
+        return _mapper.Map<PagedList<ProductDto>>(products);
     }
 }

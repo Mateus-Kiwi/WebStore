@@ -1,15 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "57dooOZD1RdNw+rHv6xA/2f6sA+rEJMYtD8q9L7roZcADBcr4MoIOEdbETuB+BAEeSl/RnkcOZVt7k2gb4ltuw==",
+  "dgSpecHash": "O8acXDANvGtmlHHrLru7fn5rsAi9KMhUDql3JO+l24f+3zk6Rf7xRIsCVD7XM4uMe2hh/uLJf5ynLtmdLHjOhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "projectFilePath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\augusto.costa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
 }

@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Annotations;
 using WebStore.Domain.Entities.Base;
 using WebStore.Domain.Validation;
 
@@ -6,60 +9,75 @@ namespace WebStore.Domain.Entities;
 
 public sealed class Product : BaseEntity
 {
-   
+
     [Required]
     [MinLength(5)]
     [StringLength(30)]
-    public string? Name { get; private set; }
+    public string Name { get; private set; } 
     
     [Required]
     [MinLength(5)]
     [StringLength(50)]
-    public string? Description { get; private set; }
+    public string Description { get; private set; }
     
     [Required]
     public decimal Price { get; private set; }
     
     [Required]
     [MinLength(5)]
-    [StringLength(100)]
-    public string? ImageUrl { get; private set; }
+    [StringLength(300)]
+    public string ImageUrl { get; private set; }
+    
+    [Required]
+    public Guid  BrandId { get; private set; }
+    
+    public ProductBrand Brand { get; private set; }
+    
+    public string? BrandName { get; set; }
+    
+    [Required]
+    public Guid CategoryId { get; private set; }
+    
+    public ProductCategory Category { get; private set; }
+    
+    public string? CategoryName { get; set; }
 
-    
-    
-    public ProductBrand ProductBrand { get; private set; }
-    
-    public int ProductBrandId { get; private set; }
-    
-    public ProductCategory ProductCategory { get; set; }
-    
-    public int ProductCategoryId { get; set; }
-    
 
-    public Product(int id, string name, string description, decimal price, string imageUrl) : base(id)
+    public Product() {}
+
+    public Product(Guid id, string name, string description, decimal price, string imageUrl,Guid brandId, Guid categoryId) : base(id)
     {
-        Validate(name,description,price,imageUrl);
+        Validate(name,description,price,imageUrl,brandId,categoryId);
+        Brand.Id = BrandId;
     }
-
-
+    
     public void UpdateProduct(Product product)
     {
-        product.Name = Name;
-        product.Description = Description;
-        product.ImageUrl = ImageUrl;
-        product.Price = Price;
-        product.ProductBrand = ProductBrand;
-        product.ProductCategory = ProductCategory;
+        Validate(product.Name, product.Description, product.Price, product.ImageUrl, product.BrandId, product.CategoryId);
     }
     
-    private void Validate(string name, string description, decimal price, string imageUrl)
+    private void Validate(string name, string description, decimal price, string imageUrl, Guid brandId, Guid categoryId)
     {
         ValidateName(name);
         ValidateDescription(description);
         ValidatePrice(price);
         ValidateImageUrl(imageUrl);
+        ValidateBrandId(brandId);
+        ValidateCategoryId(categoryId);
+    }
+
+    private void ValidateBrandId(Guid brandId)
+    {
+        DomainValidationException.When(string.IsNullOrEmpty(brandId.ToString()),"Invalid Guid. Guid is required");
+        DomainValidationException.When(string.IsNullOrWhiteSpace(brandId.ToString()),"Invalid Guid. Guid is required");
     }
     
+    private void ValidateCategoryId(Guid categoryId)
+    {
+        DomainValidationException.When(string.IsNullOrEmpty(categoryId.ToString()),"Invalid Guid. Guid is required");
+        DomainValidationException.When(string.IsNullOrWhiteSpace(categoryId.ToString()),"Invalid Guid. Guid is required");
+    }
+
 
     private void ValidateName(string name)
     {
@@ -90,7 +108,7 @@ public sealed class Product : BaseEntity
         DomainValidationException.When(string.IsNullOrEmpty(imageUrl),"Invalid image url. Image url is required");
         DomainValidationException.When(string.IsNullOrWhiteSpace(imageUrl),"Invalid image url. Image url is required");
         DomainValidationException.When(imageUrl.Length < 5, "Invalid image url. Image url should have at least 5 characters");
-        DomainValidationException.When(imageUrl.Length > 100, "Invalid image url. Image url should a maximum of 100 characters");
+        DomainValidationException.When(imageUrl.Length > 300, "Invalid image url. Image url should a maximum of 100 characters");
         ImageUrl = imageUrl;
     }
 }

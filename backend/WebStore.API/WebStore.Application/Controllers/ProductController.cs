@@ -34,7 +34,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] ProductDto product)
+    public async Task<IActionResult> Create([FromBody]ProductDto product)
     {
         await _service.Create(product);
         return Ok(product);
@@ -66,7 +66,7 @@ public class ProductController : ControllerBase
         await _service.Delete(id);
         return Ok();
     }
-
+    
     [HttpGet("pagination")]
     public async Task<IActionResult> GetWithPagination([FromQuery]ProductParams productParams)
     {
@@ -83,6 +83,40 @@ public class ProductController : ControllerBase
         };
 
         Response.Headers.Append("X-pagination", JsonConvert.SerializeObject(metadata));
+        return Ok(products);
+    }
+
+    [HttpGet("filter/price/pagination")]
+    public async Task<IActionResult> GetWithPriceFilter([FromQuery] ProductsPriceFilter priceFilter)
+    {
+        var products = await _service.GetWithPriceFilter(priceFilter);
+        
+        var metadata = new
+        {
+            products.TotalCount,
+            products.PageSize,
+            products.CurrentPage,
+            products.TotalPages,
+            products.HasNext,
+            products.HasPrevious
+        };
+
+        Response.Headers.Append("X-pagination", JsonConvert.SerializeObject(metadata));
+        return Ok(products);
+    }
+
+    [HttpGet("filter/brand/pagination")]
+    public async Task<IActionResult> GetProductsByBrandNameAsync([FromQuery]QueryStringParams query, [FromQuery]string brandName)
+    {
+        var products = await _service.GetProductsByBrandNameAsync(query,brandName);
+        return Ok(products);
+    }
+
+    [HttpGet("filter/category/pagination")]
+    public async Task<IActionResult> GetProductsByCategoryNameAsync([FromQuery] QueryStringParams query,
+        [FromQuery] string categoryName)
+    {
+        var products = await _service.GetProductsByCategoryNameAsync(query, categoryName);
         return Ok(products);
     }
 }
