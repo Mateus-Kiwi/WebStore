@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using WebStore.Domain.Entities.Base;
+using WebStore.Domain.Entities.OrderAggregate;
 using WebStore.Domain.Validation;
 using WebStore.Domain.ValueObjects;
 
@@ -39,6 +40,8 @@ public class User : BaseEntity
     public string Cpf { get; private set; } = "";
     
     public AddressVO Address { get; private set; } = new AddressVO();
+    
+    public ICollection<Order> Orders { get; private set; }
 
     public User() {}
     

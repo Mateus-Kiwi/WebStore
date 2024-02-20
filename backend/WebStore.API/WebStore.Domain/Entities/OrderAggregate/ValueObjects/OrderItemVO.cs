@@ -1,7 +1,6 @@
-﻿using WebStore.Domain.Entities.Base;
-using WebStore.Domain.Validation;
+﻿using WebStore.Domain.Validation;
 
-namespace WebStore.Domain.Entities.OrderAggregate;
+namespace WebStore.Domain.Entities.OrderAggregate.ValueObjects;
 
 public class OrderItemVO
 {

@@ -20,7 +20,6 @@ public sealed class ProductBrand : BaseEntity
     [StringLength(30)]
     public string? Name { get; private set; }
     
-    
     public ICollection<Product>? Products { get; private set; }
 
     private void ValidateName(string name)
