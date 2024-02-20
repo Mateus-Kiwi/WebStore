@@ -5,9 +5,9 @@
   <div class="login">
     <div class="form-div">
       <h2>Welcome back</h2>
-      <input type="text" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button class="login-btn">Login</button>
+      <input type="text" placeholder="Email" name="email" [(ngModel)]="email">
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="password">
+      <button class="login-btn" (click)="login()">Login</button>
       <h6>Or</h6>
       <div class="google-facebook-div">
         <button class="socials-btn"><img src="../../../../assets/google.png" class="logo"></button>

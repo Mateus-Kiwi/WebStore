@@ -5,11 +5,11 @@
   <div class="login">
     <div class="form-div">
       <h2>Welcome!</h2>
-      <input type="text" placeholder="Name">
-      <input type="text" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <input type="password" placeholder="Confirm password">
-      <button class="login-btn">Create account</button>
+      <input type="text" placeholder="Name" >
+      <input type="text" placeholder="Email" name="email" [(ngModel)]="email">
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="password">
+
+      <button class="login-btn" (click)="register()">Create account</button>
 
       <p class="create-acc">Already got an account? <button class="forgot-pass" routerLink="/login">Log in</button></p>
 
