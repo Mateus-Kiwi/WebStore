@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "webstore-63a0a"
+  },
+  "targets": {
+    "webstore-63a0a": {
+      "hosting": {
+        "frontend": [
+          "webstore-63a0a"
+        ]
+      }
+    }
+  }
+}

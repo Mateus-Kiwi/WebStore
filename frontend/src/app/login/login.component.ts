@@ -5,6 +5,7 @@ import { LoginDesktopComponent } from './layouts/login-desktop/login-desktop.com
 import { HomeDesktopComponent } from "../home/layouts/home-desktop/home-desktop.component";
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @Component({
     selector: 'app-login',
