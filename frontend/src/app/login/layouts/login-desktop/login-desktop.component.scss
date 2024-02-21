@@ -84,7 +84,7 @@ h6{
 .google-facebook-div{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin-bottom: 0.7rem;
@@ -96,8 +96,8 @@ h6{
   align-items: center;
   font-size: 1.2rem;
   height: 3rem;
-  margin: 0.5rem;
-  width: 100%;
+
+  width: 48%;
   background-color: #3c5fa9;
   border: none;
   color: #ffffff;

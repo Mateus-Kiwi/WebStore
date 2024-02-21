@@ -6,20 +6,27 @@ import { HomeDesktopComponent } from "../home/layouts/home-desktop/home-desktop.
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [LoginMobileComponent, LoginDesktopComponent, HomeDesktopComponent, RouterModule, CommonModule],
+    imports: [LoginMobileComponent, LoginDesktopComponent, HomeDesktopComponent, RouterModule, CommonModule, ProfileComponent],
     template: `
-  @if(isMobile) {
-    <app-login-mobile/>
+  @if(token == 'true'){
+    <app-profile/>
   }
-  @else {
+  @else{
+    @if(isMobile){
+      <app-login-mobile/>
+    }
+    @else {
     <app-login-desktop/>
   }
-  `,
+  }`,
 })
 export class LoginComponent {
   isMobile = isMobile();
+
+  token = localStorage.getItem('token');
 }

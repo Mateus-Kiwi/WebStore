@@ -33,4 +33,7 @@ export class LoginDesktopComponent {
     this.email = '';
     this.password = '';
   }
+
+
+
 }
