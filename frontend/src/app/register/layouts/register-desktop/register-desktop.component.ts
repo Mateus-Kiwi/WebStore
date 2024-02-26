@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class RegisterDesktopComponent {
   email : string = '';
   password : string = '';
+  username : string = '';
 
   constructor (private auth : AuthService) { }
   ngOnInit(): void {}
@@ -20,17 +21,23 @@ export class RegisterDesktopComponent {
   register(){
 
     if(this.email == '') {
-      alert('Please enter your email');
+      alert('Please enter a email');
     return;
     }
 
     if(this.password == '') {
-      alert('Please enter your password');
+      alert('Please enter a password');
     return;
     }
 
-    this.auth.register(this.email, this.password);
+    if(this.username == '') {
+      alert('Please enter a username');
+    return;
+    }
+
+    this.auth.register(this.email, this.password, this.username);
     this.email = '';
     this.password = '';
+    this.username= '';
   }
 }

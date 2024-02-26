@@ -8,17 +8,16 @@ import { RegisterComponent } from './register/register.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-
-
+import { CheckoutComponent } from './checkout/checkout.component';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'likes', component: LikesComponent},
-    {path: 'notifications', component: NotificationsComponent},
-    {path: 'account', component: AccountComponent},
-    {path:'shopping-cart', component: ShoppingCartComponent},
-    {path: 'login', component: LoginComponent},
-    {path:'register', component: RegisterComponent},
-    { path: 'profile', component: ProfileComponent},
-
+  { path: '', component: HomeComponent },
+  { path: 'likes', component: LikesComponent },
+  { path: 'notifications', component: NotificationsComponent },
+  { path: 'account', component: AccountComponent },
+  { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
