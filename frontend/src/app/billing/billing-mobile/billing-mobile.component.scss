@@ -16,8 +16,8 @@ h3 {
   margin-bottom: 2rem;
 }
 .login{
-
   justify-content: center;
+  background-color: #3c5fa9;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -87,7 +87,7 @@ h2{
 .button-div{
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   background-color: #3c5fa9 ;
   align-items: center;
