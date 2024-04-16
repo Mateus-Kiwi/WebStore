@@ -29,7 +29,7 @@ export class AuthService implements OnInit {
       (err) => {
         alert(err.message);
       }
-    ); 
+    );
   }
 
   register(email: string, password: string, username: string) {

@@ -100,17 +100,16 @@ body {
 }
 
 .products-container {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    overflow: hidden;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 2fr));
-    gap: 2rem;
-    justify-content: space-between;
-
-    padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 3rem;
+  justify-content: center;
+  padding: 2rem;
 }
 
 app-card {}
@@ -118,14 +117,7 @@ app-card {}
 
 img {}
 
-@media (max-width: 800px) {
-    body {
-        margin-left: 0rem;
-    }
-    .fa-search {
-        font-size: 1rem;
-    }
-}
+
 
 
 

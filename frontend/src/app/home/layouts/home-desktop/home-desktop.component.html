@@ -5,15 +5,15 @@
         Find the perfect gift
       </h1>
       <div class="search-bar">
-        
+
         <input class="search-bar-input" type="text">
         <div class="circle">
           <i class="fa fa-search"></i>
         </div>
-        
+
       </div>
-      
-      
+
+
     </div>
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -41,100 +41,10 @@
     </a>
   </div>
 
-  
+
   <div class="products-container">
-    <!-- <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/>
-    <app-card/> -->
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/phone.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p class="pName">Galaxy pocket insano</p>
-          <p class="pDescription">$40</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/pexels-pixabay-270640.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/pexels-lumn-322207.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/pexels-pixabay-532173.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/phone.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/phone.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/phone.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/phone.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/phone.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
-    <div class="card-div">
-      <div class="img-container">
-          <img src="../../assets/phone.jpg" alt="galaxy pocket neo" >
-      </div>
-      <div class="info-container">
-          <p>Galaxy pocket insano</p>
-      </div>
-  </div>
+    @for (product of products; track product.name) {
+      <li>{{product.name}}</li>
+    }
   </div>
 </body>

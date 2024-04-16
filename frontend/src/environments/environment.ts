@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:5157/api/',
   firebaseConfig: {
     apiKey: 'AIzaSyAsBJ-Hh1JZHyQ7hlZBpHVmhLuP80xOLHE',
 
@@ -15,5 +16,5 @@ export const environment = {
 
     measurementId: 'G-EPF9EXME80',
   },
-  
+
 };

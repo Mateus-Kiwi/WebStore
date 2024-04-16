@@ -18,19 +18,6 @@
           }
         }
       },
-      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
-        "type": "package",
-        "dependencies": {
-          "AutoMapper": "[12.0.1]",
-          "Microsoft.Extensions.Options": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -470,20 +457,6 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
-      ]
-    },
-    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
-      "sha512": "+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
-      "type": "package",
-      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
-        "automapper.extensions.microsoft.dependencyinjection.nuspec",
-        "icon.png",
-        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -1159,11 +1132,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AutoMapper >= 12.0.1",
-      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Microsoft.Extensions.Configuration >= 8.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0",
-      "Newtonsoft.Json >= 13.0.3",
       "Npgsql >= 8.0.1",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.0",
       "Swashbuckle.AspNetCore.Annotations >= 6.5.0",
@@ -1173,38 +1143,40 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\augusto.costa\\.nuget\\packages\\": {}
+    "C:\\Users\\mateus.silveira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
+      "projectUniqueName": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
       "projectName": "WebStore.IoC",
-      "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
-      "packagesPath": "C:\\Users\\augusto.costa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\obj\\",
+      "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\WebStore.IoC.csproj",
+      "packagesPath": "C:\\Users\\mateus.silveira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.IoC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\augusto.costa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\mateus.silveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
-              "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj"
+            "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj": {
+              "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Data\\WebStore.Data.csproj"
             },
-            "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
-              "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
+            "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj": {
+              "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Domain\\WebStore.Domain.csproj"
             },
-            "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
-              "projectPath": "C:\\Users\\augusto.costa\\projects\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
+            "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj": {
+              "projectPath": "C:\\Users\\mateus.silveira\\Documents\\GitHub\\WebStore\\backend\\WebStore.API\\WebStore.Infra\\WebStore.Infra.csproj"
             }
           }
         }
@@ -1219,14 +1191,6 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[12.0.1, )"
-          },
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-            "target": "Package",
-            "version": "[12.0.1, )"
-          },
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
             "version": "[8.0.0, )"
@@ -1234,10 +1198,6 @@
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[8.0.0, )"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "[13.0.3, )"
           },
           "Npgsql": {
             "target": "Package",
@@ -1268,7 +1228,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
