@@ -21,8 +21,9 @@ export class HomeDesktopComponent implements OnInit {
       this.products = products;
     });
 
-    // this.homeService.getProducts().subscribe((pagination: Pagination<Product[]>) => {
-    //   this.products = pagination.data;
+    // this.homeService.getProducts().subscribe({
+    //   next: response => this.products = response.data,
+    //   error: error => console.log(error)
     // });
   }
 }

@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ProductDetailsMobileComponent } from './product-details-mobile.component';
+
+describe('ProductDetailsMobileComponent', () => {
+  let component: ProductDetailsMobileComponent;
+  let fixture: ComponentFixture<ProductDetailsMobileComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ProductDetailsMobileComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(ProductDetailsMobileComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

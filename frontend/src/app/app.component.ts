@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
 export class AppComponent implements OnInit {
   title = 'frontend';
 
-
+  
   constructor() { }
 
   ngOnInit(): void {
