@@ -6,14 +6,14 @@ body {
 .collapse-container {
   background-color: white;
   overflow: hidden;
-  max-width: 20%;
+  max-width: 30rem;
 
   transition: max-width 0.5s ease-in-out;
 }
 .card-header{
   background-color: white;
   height: 100vh;
-  width: 20vw;
+  width: 30rem;
   border: none;
   overflow: hidden;
 }

@@ -66,6 +66,10 @@ h2 {
     background-color: #3c5fa97f;
     transition: 0.3s;
   }
+  &:hover{
+    background-color: #3c5fa97f;
+    transition: 0.2s;
+  }
 }
 h6 {
   color: #ababab;
@@ -101,6 +105,10 @@ h6 {
   &:active {
     background-color: #3c5fa97f;
     transition: 0.3s;
+  }
+  &:hover{
+    background-color: #3c5fa97f;
+    transition: 0.2s;
   }
 }
 

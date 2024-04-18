@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BillingComponent } from './billing/billing.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,4 +25,6 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'billing', component: BillingComponent },
   { path: 'confirmation', component: ConfirmationComponent },
+  { path: ':id', component: ProductDetailsComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

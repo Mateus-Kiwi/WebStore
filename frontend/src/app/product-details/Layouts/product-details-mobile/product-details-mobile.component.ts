@@ -4,13 +4,13 @@ import { HomeService } from '../../../home/home.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-product-details-desktop',
+  selector: 'app-product-details-mobile',
   standalone: true,
   imports: [],
-  templateUrl: './product-details-desktop.component.html',
-  styleUrl: './product-details-desktop.component.scss',
+  templateUrl: './product-details-mobile.component.html',
+  styleUrl: './product-details-mobile.component.scss',
 })
-export class ProductDetailsDesktopComponent implements OnInit {
+export class ProductDetailsMobileComponent implements OnInit {
   product?: Product;
 
   constructor(
@@ -18,12 +18,10 @@ export class ProductDetailsDesktopComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.loadProduct();
-  }
+  ngOnInit(): void {}
 
   loadProduct() {
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       this.homeService.getProduct(+id).subscribe((product) => {
         this.product = product;

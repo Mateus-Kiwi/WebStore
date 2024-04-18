@@ -4,6 +4,11 @@
 
   aspect-ratio: 1; /* Mantém a proporção 1:1 */
   border-radius: 1.5rem;
+  &:hover{
+    opacity: 0.8;
+    scale: 1.015;
+    transition: 0.2s;
+  }
 }
 
 .img-container img {
@@ -20,6 +25,7 @@
 }
 
 .info-container {
+  color: #4e4e4e;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -33,7 +39,7 @@
   padding-top: 0.5rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  
+
 }
 
 .pPrice {
