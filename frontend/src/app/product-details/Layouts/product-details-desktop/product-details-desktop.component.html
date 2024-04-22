@@ -9,8 +9,8 @@
         <h2>${{product.price}} </h2>
         <p>{{product.description}}</p>
         <h4>{{product.inventory}} left in stock</h4>
-        <button class="buy-now-btn">Buy now</button>
-        <button class="add-cart-btn">Add to cart</button>
+        <button class="buy-now-btn" routerLink="/checkout">Buy now</button>
+        <button class="add-cart-btn" (click)="addItemToBasket()">Add to cart</button>
       </div>
     </div>
 

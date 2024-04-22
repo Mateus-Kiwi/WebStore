@@ -1,1 +1,20 @@
-<p>product-details-mobile works!</p>
+<body>
+  @if (product) {
+    <div class="container">
+      <div class="image-div">
+        <img src={{product.imgUrl}} alt="">
+      </div>
+      <div class="details-div">
+        <h2>{{product.name}}</h2>
+        <h4>${{product.price}} </h4>
+        <p>{{product.description}}</p>
+        <h4>{{product.inventory}} left in stock</h4>
+        <button class="buy-now-btn" routerLink="/checkout">Buy now</button>
+        <button class="add-cart-btn">Add to cart</button>
+      </div>
+    </div>
+
+
+
+  }
+</body>

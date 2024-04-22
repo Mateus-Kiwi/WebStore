@@ -1,0 +1,126 @@
+body {
+  background-color: #fff;
+  display: flex;
+  margin-bottom: 4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-div {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.details-div {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  width: 90%;
+  max-width: 90%;
+  height: 100%;
+}
+
+img {
+  border-radius: 0rem 0rem  2rem 2rem;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: #4e4e4e;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+  margin: 1rem;
+  color: #4e4e4e;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+h4 {
+  text-align: center;
+  margin: 1rem;
+  color: #4e4e4e;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+p {
+  display: flex;
+  text-align: start;
+  justify-self: left;
+  align-self: start;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #4e4e4e;
+}
+
+.buy-now-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 4rem;
+  margin: 0.5rem;
+  width: 100%;
+  background-color: #3c5fa9;
+  border: none;
+  color: #ffffff;
+  border-radius: 2rem;
+  &:active {
+    background-color: #3c5fa97f;
+    transition: 0.3s;
+  }
+  &:hover {
+    background-color: #3c5fa97f;
+    transition: 0.2s;
+  }
+}
+.add-cart-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 4rem;
+  margin: 0.5rem;
+  width: 100%;
+  background-color: #c3c3c3;
+  border: none;
+  color: #ffffff;
+  border-radius: 2rem;
+  &:active {
+    background-color: #3c5fa97f;
+    transition: 0.3s;
+  }
+  &:hover {
+    background-color: #d2d2d27f;
+    transition: 0.2s;
+  }
+}
