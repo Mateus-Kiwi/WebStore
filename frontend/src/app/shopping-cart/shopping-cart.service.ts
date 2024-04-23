@@ -16,7 +16,7 @@ export class ShoppingCartService {
   constructor(private http: HttpClient) {}
 
   getBasket(id: string) {
-    return this.http.get<Basket>(this.baseUrl + 'basket?id=' + id).subscribe({
+    return this.http.get<Basket>(this.baseUrl + 'basket/' + id).subscribe({
       next: (basket) => this.cartSource.next(basket),
     });
   }
@@ -57,7 +57,7 @@ export class ShoppingCartService {
   private mapProductToBasketItem(item: Product): BasketItem {
     return{
       id: item.id,
-      productName: item.name,
+      name: item.name,
       price: item.price,
       quantity: 0,
       inventory: 0,

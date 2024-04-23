@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../models/product';
 import { HomeService } from '../../../home/home.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ShoppingCartService } from '../../../shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-product-details-mobile',
@@ -14,12 +15,17 @@ export class ProductDetailsMobileComponent implements OnInit {
   product?: Product;
 
   constructor(
+    private basketService: ShoppingCartService,
     private homeService: HomeService,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.loadProduct();
+  }
+
+  addItemToBasket() {
+    this.product && this.basketService.addItemToBasket(this.product);
   }
 
   loadProduct() {

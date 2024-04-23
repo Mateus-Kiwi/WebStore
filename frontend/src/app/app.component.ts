@@ -6,22 +6,33 @@ import { CardComponent } from './card/card.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { ShoppingCartService } from './shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent, FontAwesomeModule, RouterModule, RouterLinkActive, CardComponent, HttpClientModule],
+  imports: [
+    RouterOutlet,
+    NavBarComponent,
+    FontAwesomeModule,
+    RouterModule,
+    RouterLinkActive,
+    CardComponent,
+    HttpClientModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig }],
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
+  ],
 })
 export class AppComponent implements OnInit {
   title = 'frontend';
 
-  
-  constructor() { }
+  constructor(private basketService: ShoppingCartService) {}
 
   ngOnInit(): void {
-
+    const basketId = localStorage.getItem('basketId');
+    if (basketId) this.basketService.getBasket(basketId);
   }
 }

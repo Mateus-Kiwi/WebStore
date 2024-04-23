@@ -27,6 +27,7 @@ export class ProductDetailsDesktopComponent implements OnInit {
   addItemToBasket() {
     this.product && this.basketService.addItemToBasket(this.product);
   }
+
   loadProduct() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {

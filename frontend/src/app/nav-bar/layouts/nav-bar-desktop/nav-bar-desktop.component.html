@@ -7,7 +7,13 @@
         <i class="fa fa-heart" routerLink="/likes" routerLinkActive="active"></i>
         <i class="fa fa-bell" routerLinkActive="active" (click)="isCollapsed = !isCollapsed"
         [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic" [ngClass]="{'active': !isCollapsed}"></i>
-        <i class="fa fa-cart-shopping" routerLink="/shopping-cart" routerLinkActive="active"></i>
+        <i class="fa fa-cart-shopping" routerLink="/shopping-cart" routerLinkActive="active">
+          @if (basketService.cartSource$ | async)  {
+            <!-- <div class="cartNumber">{{getNumber}} </div> -->
+          }
+
+        </i>
+
         <i class="fa fa-user" routerLink="/login" routerLinkActive="active"></i>
     </li>
     <div id="collapseBasic" [ngClass]="{'collapsed': isCollapsed}" class="collapse-container">

@@ -2,7 +2,7 @@ import cuid from "cuid"
 
   export interface BasketItem {
     id: number
-    productName: string
+    name: string
     price: number
     quantity: number
     inventory: number
@@ -14,10 +14,10 @@ import cuid from "cuid"
   export interface Basket {
     id: string;
     items: BasketItem[];
-    clientSecret?: string;
-    paymentIntentId?: string;
-    deliveryMethodId?: number;
-    shippingPrice: number
+    // clientSecret?: string;
+    // paymentIntentId?: string;
+    // deliveryMethodId?: number;
+    // shippingPrice: number
   }
 
   export class Basket implements Basket {
