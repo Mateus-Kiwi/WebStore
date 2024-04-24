@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   constructor(private basketService: ShoppingCartService) {}
 
   ngOnInit(): void {
-    const basketId = localStorage.getItem('basketId');
+    const basketId = localStorage.getItem('basket_id');
     if (basketId) this.basketService.getBasket(basketId);
   }
 }

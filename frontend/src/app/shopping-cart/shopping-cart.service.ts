@@ -8,10 +8,12 @@ import { Product } from '../models/product';
 @Injectable({
   providedIn: 'root',
 })
+
 export class ShoppingCartService {
   baseUrl = environment.apiUrl;
-  private cartSource = new BehaviorSubject<Basket | null>(null);
+  private cartSource = new BehaviorSubject<Basket>(null as any);
   cartSource$ = this.cartSource.asObservable();
+
 
   constructor(private http: HttpClient) {}
 
@@ -51,7 +53,7 @@ export class ShoppingCartService {
   private createBasket(): Basket {
     const basket = new Basket();
     localStorage.setItem('basket_id', basket.id);
-    return basket
+    return basket;
   }
 
   private mapProductToBasketItem(item: Product): BasketItem {

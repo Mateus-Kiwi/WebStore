@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ShoppingCartService } from '../../shopping-cart.service';
 
 @Component({
   selector: 'app-cart-desktop',
@@ -9,5 +10,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './cart-desktop.component.scss'
 })
 export class CartDesktopComponent {
+
+  constructor(public basketService: ShoppingCartService) { }
 
 }

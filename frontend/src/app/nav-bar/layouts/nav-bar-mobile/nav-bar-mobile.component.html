@@ -5,7 +5,11 @@
         <i class="fa fa-search" routerLink="/"></i>
         <i class="fa fa-heart" routerLink="/likes" routerLinkActive="active"></i>
         <i class="fa fa-bell" routerLink="/notifications" routerLinkActive="active"></i>
-        <i class="fa fa-cart-shopping" routerLink="/shopping-cart" routerLinkActive="active"></i>
+        <i class="fa fa-cart-shopping" routerLink="/shopping-cart" routerLinkActive="active">
+          <div class="cartNumber" *ngIf="(basketService.cartSource$ | async) as basket">
+            {{getCount(basket.items)}}
+          </div>
+        </i>
         <i class="fa fa-user" routerLink="/login" routerLinkActive="active"></i>
     </li>
 </header>
