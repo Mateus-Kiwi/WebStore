@@ -7,10 +7,14 @@ body {
   justify-content: center;
   min-height: 100vh;
 }
-.notifs{
+.container{
   flex: 1;
   display: flex;
   flex-direction: row;
+}
+
+.page-title{
+  margin-bottom: 4rem;
 }
 
 .text-container {
@@ -19,7 +23,7 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin: 4rem;
+  margin-bottom: 4rem;
 
 }
 h3 {
@@ -39,37 +43,106 @@ h3 {
   color: #4e4e4e;
   align-items: flex-start;
   padding: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+
   border-radius: 0.75rem;
   width: 100%;
   height: 100%;
 }
 .img-container {
-  background-color: #3c5fa9;
   width: 10rem;
   min-width: 10rem;
   height: 10rem;
   min-height: 10rem;
   margin-right: 2rem;
   border-radius: 0.5rem;
+  overflow: hidden;
 }
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
 .info-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  align-items: flex-start;
   padding-top: 0.3rem;
   width: 100%;
+  height: 10rem;
   line-height: 0.5;
+
 }
+
+.top-line{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align: left;
+}
+
 .title{
+  flex: 1;
   font-weight: bold;
   line-height: 0.75;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
 }
+
+.plusminus{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #4e4e4e;
+  justify-self: right;
+  font-size: 1.25rem;
+  width: 3rem;
+}
+
+i{
+  &:hover{
+    color: #3c5fa9;
+    transition: 0.2s;
+  }
+}
+
+.description{
+  text-align: left;
+  height: 100%;
+  max-width: 100%;
+  max-height: 6rem;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.quantity{
+  font-size: 1.5rem;
+  position: absolute;
+  font-weight: bold;
+  bottom: 0;
+  right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .price{
   font-size: 1.5rem;
+
+
+  align-self: flex-start;
+  text-align: end;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 .summary{
+  text-align: left;
   margin-left: 2%;
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 17.5vw;
   height: fit-content;
   border-radius: 1rem;
   background-color: #f5f5f5;
@@ -82,7 +155,8 @@ h3 {
   flex-direction: column;
   flex: 1;
   padding: 1rem;
-  padding-left: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   line-height: 0.7;
   justify-content: center;
 

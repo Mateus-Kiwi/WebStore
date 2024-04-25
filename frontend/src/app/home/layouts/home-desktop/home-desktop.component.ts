@@ -15,7 +15,7 @@ export class HomeDesktopComponent implements OnInit {
   constructor(private homeService: HomeService) {}
 
   products: Product[] = []
-
+  
   ngOnInit(): void {
     this.homeService.getProducts().subscribe((products) => {
       this.products = products;

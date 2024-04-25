@@ -1,42 +1,53 @@
 <body>
-  @if (basketService.cartSource$ == null) {
-    <div class="text-container">
-      <h3>Your cart is empty</h3>
-    </div>
+  @if ((basketService.cartSource$ | async) === null) {
+  <div class="text-container">
+    <h3 class="page-title">Your cart is empty 🤕</h3>
+  </div>
 
-  } @else {
+  } @else { @if (basketService.cartSource$ | async; as basket) {
+  <div class="text-container">
+    <h3 class="page-title">
+      You have {{ getCount(basket.items) }} items in your shopping cart
+    </h3>
 
-    <div class="text-container">
-      <h3>You have 3 items in your shopping cart</h3>
-    </div>
-    <div class="notifs">
+    <div class="container">
       <div class="products-container">
+        @for (item of basket.items; track $index) {
         <div class="product-cart-card">
           <div class="img-container">
-            <!-- <img src="../../../../assets/phone.jpg" alt=""> -->
+            <img src="{{ item.imgUrl }}" />
           </div>
           <div class="info-container">
-            <p class="title">Galaxy pocket insano</p>
-            <p class="description">Celular velho meio horrivel</p>
-            <p class="price">$40</p>
+            <div class="top-line">
+              <h5 class="title">{{ item.name }}</h5>
+              <div class="plusminus">
+                <i class="fa fa-minus"></i>
+                <i class="fa fa-plus"></i>
+              </div>
+            </div>
+
+            <p class="description">{{ item.description }}</p>
+            <p class="quantity">x{{ item.quantity }}</p>
+            <p class="price">${{ item.price }}</p>
           </div>
         </div>
+        }
       </div>
       <div class="summary">
         <div class="summary-text-div">
-          <h4 class="summary-text">Summary</h4>
-          <p class="summary-values">Subtotal: $40.00</p>
-          <p class="summary-values">Shipping: $10.00</p>
+          <h3 class="summary-text">Summary</h3>
+          <h5 class="summary-values">
+            Subtotal: {{ getSubtotal(basket.items) | currency }}
+          </h5>
+          <h5 class="summary-values">Estimated shipping: $10.00</h5>
           <div class="line"></div>
-          <p class="summary-total">Total: $50.00</p>
+          <h5 class="summary-total">Total: $1330.00</h5>
         </div>
         <div class="button-div" routerLink="/checkout">
           <h4>Proceed to checkout</h4>
         </div>
       </div>
     </div>
-    
-  }
-
+  </div>
+  } }
 </body>
-
