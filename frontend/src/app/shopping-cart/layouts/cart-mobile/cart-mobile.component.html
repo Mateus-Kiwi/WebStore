@@ -1,29 +1,54 @@
 <body>
+  @if ((basketService.cartSource$ | async) === null) {
   <div class="text-container">
-    <h3>You have 3 items in your shopping cart</h3>
+    <h3 class="page-title">Your cart is empty 🤕</h3>
   </div>
 
-  <div class="products-container">
-    <div class="product-cart-card">
-      <div class="img-container">
-        <!-- <img src="../../../../assets/phone.jpg" alt=""> -->
+  } @else { @if (basketService.cartSource$ | async; as basket) {
+  <div class="text-container">
+    <h3 class="page-title">
+      You have {{ getCount(basket.items) }} items in your shopping cart
+    </h3>
+
+    <div class="container">
+      <div class="products-container">
+        <button class="clear-btn" (click)="deleteBasket(basket)">
+          Clear basket
+        </button>
+        @for (item of basket.items; track $index) {
+        <div class="product-cart-card" routerLink="/{{ item.id }}">
+          <div class="img-container">
+            <img src="{{ item.imgUrl }}" />
+          </div>
+          <div class="info-container">
+            <div class="top-line">
+              <h5 class="title">{{ item.name }}</h5>
+              <div class="plusminus">
+                <i class="fa fa-minus" (click)="removeItem(item.id)"></i>
+                <i class="fa fa-plus" (click)="incrementQuantity(item)"></i>
+              </div>
+            </div>
+
+            <p class="description">{{ item.description }}</p>
+            <p class="quantity">x{{ item.quantity }}</p>
+            <p class="price">${{ item.price }}</p>
+          </div>
+        </div>
+        }
       </div>
-      <div class="info-container">
-        <p class="title">Galaxy pocket insano</p>
-        <p class="description">Celular velho meio horrivel</p>
-        <p class="price">$40</p>
+
+      <div class="summary">
+        <div class="summary-text-div">
+          <p class="summary-text">Subtotal: $40.00</p>
+          <p class="summary-text">Shipping: $10.00</p>
+          <div class="line"></div>
+          <p class="summary-total">Total: $50.00</p>
+        </div>
+        <button class="button-div" routerLink="/checkout">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
     </div>
   </div>
-  <div class="summary">
-    <div class="summary-text-div">
-      <p class="summary-text">Subtotal: $40.00</p>
-      <p class="summary-text">Shipping: $10.00</p>
-      <div class="line"></div>
-      <p class="summary-total">Total: $50.00</p>
-    </div>
-    <button class="button-div" routerLink="/checkout">
-      <i  class="fa-solid fa-arrow-right"></i>
-    </button>
-  </div>
+  } }
 </body>

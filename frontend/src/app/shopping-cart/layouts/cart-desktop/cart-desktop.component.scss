@@ -32,6 +32,7 @@ h3 {
 }
 .products-container {
   flex: 1;
+  position: relative;
   width: 40vw;
   height: 100%;
 }
@@ -44,7 +45,6 @@ h3 {
   align-items: flex-start;
   padding: 1rem;
   margin-bottom: 1rem;
-
   border-radius: 0.75rem;
   width: 100%;
   height: 100%;
@@ -74,7 +74,6 @@ img{
   width: 100%;
   height: 10rem;
   line-height: 0.5;
-
 }
 
 .top-line{
@@ -147,7 +146,6 @@ i{
   border-radius: 1rem;
   background-color: #f5f5f5;
   color: #4e4e4e;
-
 }
 
 .summary-text-div{
@@ -187,9 +185,28 @@ i{
 
   &:hover {
     background-color: #3c5fa97f;
-    transition: 0.3s;
+    transition: 0.2s;
   }
 }
+
+.clear-btn {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: large;
+  color: #3c5fa9;
+  position: absolute;
+  right: 0.25rem;
+  top: -2rem;
+  &:hover{
+    color: #3c5fa97f;
+    transition: 0.2s;
+  }
+  &:active{
+    color: #fff;
+  }
+}
+
 h4{
   user-select: none;
 }

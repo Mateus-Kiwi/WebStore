@@ -14,18 +14,25 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
-  margin: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+
+}
+
+.page-title{
+  margin-bottom: 4rem;
 }
 
 h3 {
+  font-size: 2.5rem;
   color: #3c5fa9;
 }
 .products-container {
   flex: 1;
-  width: 100%;
+  position: relative;
+  width: 40vw;
   height: 100%;
 }
+
 .product-cart-card {
   flex: 3;
   display: flex;
@@ -38,8 +45,8 @@ h3 {
   border-radius: 0.75rem;
   width: 100%;
   height: 100%;
-
 }
+
 .img-container {
   background-color: #3c5fa9;
   width: 5rem;
@@ -48,26 +55,95 @@ h3 {
   min-height: 5rem;
   margin-right: 1rem;
   border-radius: 0.5rem;
+  overflow: hidden;
 }
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
 .info-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  align-items: flex-start;
   padding-top: 0.3rem;
   width: 100%;
+  height: 10rem;
   line-height: 0.5;
 }
-.title{
-  font-weight: bold;
-  line-height: 0.75;
-}
-.price{
-  font-size: 1.5rem;
-}
-.summary{
+
+.top-line{
+  width: 100%;
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  height: 10rem;
+  align-items: start;
+  text-align: left;
+}
+
+.title{
+  flex: 1;
+  font-weight: bold;
+  line-height: 0.75;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.plusminus{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   color: #4e4e4e;
+  justify-self: right;
+  font-size: 1.25rem;
+  width: 3rem;
+}
+
+i{
+  &:hover{
+    color: #3c5fa9;
+    transition: 0.2s;
+  }
+}
+
+.description{
+  text-align: left;
+  height: 100%;
+  max-width: 100%;
+  max-height: 6rem;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.quantity{
+  font-size: 1.5rem;
+  position: absolute;
+  font-weight: bold;
+  bottom: 0;
+  right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.price{
+  font-size: 1.5rem;
+  align-self: flex-start;
+  text-align: end;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.summary{
+  text-align: left;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  width: 17.5vw;
+  height: fit-content;
+  border-radius: 1rem;
   background-color: #f5f5f5;
+  color: #4e4e4e;
 }
 
 .summary-text-div{
@@ -106,6 +182,31 @@ h3 {
     background-color: #3c5fa97f;
     transition: 0.3s;
   }
+}
+
+.clear-btn {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: large;
+  color: #3c5fa9;
+  position: absolute;
+  right: 0.25rem;
+  top: -2rem;
+  &:hover{
+    color: #3c5fa97f;
+    transition: 0.2s;
+  }
+  &:active{
+    color: #fff;
+  }
+}
+
+h4{
+  user-select: none;
+}
+.summary-text{
+  margin-bottom: 2rem;
 }
 
 p {

@@ -11,9 +11,11 @@
     </h3>
 
     <div class="container">
+
       <div class="products-container">
+        <button class="clear-btn" (click)="deleteBasket(basket)">Clear basket</button>
         @for (item of basket.items; track $index) {
-        <div class="product-cart-card">
+        <div class="product-cart-card" routerLink="/{{item.id}}">
           <div class="img-container">
             <img src="{{ item.imgUrl }}" />
           </div>
@@ -21,8 +23,8 @@
             <div class="top-line">
               <h5 class="title">{{ item.name }}</h5>
               <div class="plusminus">
-                <i class="fa fa-minus"></i>
-                <i class="fa fa-plus"></i>
+                <i class="fa fa-minus" (click)="removeItem(item.id)"></i>
+                <i class="fa fa-plus" (click)="incrementQuantity(item)"></i>
               </div>
             </div>
 
@@ -41,7 +43,7 @@
           </h5>
           <h5 class="summary-values">Estimated shipping: $10.00</h5>
           <div class="line"></div>
-          <h5 class="summary-total">Total: $1330.00</h5>
+          <h5 class="summary-total">Total: {{getTotal(basket.items) | currency}} </h5>
         </div>
         <div class="button-div" routerLink="/checkout">
           <h4>Proceed to checkout</h4>

@@ -1,4 +1,4 @@
-import { Basket, BasketItem } from './../models/basket';
+import { Basket, BasketItem, BasketTotals } from './../models/basket';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
@@ -11,9 +11,10 @@ import { Product } from '../models/product';
 
 export class ShoppingCartService {
   baseUrl = environment.apiUrl;
-  private cartSource = new BehaviorSubject<Basket>(null as any);
+  private cartSource = new BehaviorSubject<Basket | null>(null);
   cartSource$ = this.cartSource.asObservable();
-
+  private cartTotalSource = new BehaviorSubject<BasketTotals | null>(null);
+ cartTotalSource$ = this.cartTotalSource.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -33,7 +34,7 @@ export class ShoppingCartService {
     return this.cartSource.value
   }
 
-  addItemToBasket(item: Product, quantity = 1) {
+  addItemToBasket(item: Product | BasketItem, quantity = 1) {
     const itemToAdd = this.mapProductToBasketItem(item)
     const basket = this.getCurrentBasketValue() ?? this.createBasket();
     basket.items = this.addOrUpdateItem(basket.items, itemToAdd, quantity);
@@ -48,6 +49,34 @@ export class ShoppingCartService {
       items.push(itemToAdd)
     }
     return items
+  }
+
+  removeFromBasket(id: number, quantity = 1) {
+    const basket = this.getCurrentBasketValue()
+    if (!basket) return;
+    const item = basket.items.find(x => x.id === id);
+    if (item) {
+      item.quantity -= quantity;
+      if (item.quantity === 0) {
+        basket.items = basket.items.filter(x => x.id !== id);
+      }
+      if (basket.items.length > 0) this.setBasket(basket);
+      else this.deleteBasket(basket)
+    }
+  }
+
+  deleteBasket(basket: Basket) {
+    return this.http.delete(this.baseUrl + 'basket/' + basket.id).subscribe({
+      next: () => {
+        this.deleteLocalBasket();
+      }
+    })
+  }
+
+  deleteLocalBasket() {
+    this.cartSource.next(null);
+    this.cartTotalSource.next(null);
+    localStorage.removeItem('basket_id')
   }
 
   private createBasket(): Basket {

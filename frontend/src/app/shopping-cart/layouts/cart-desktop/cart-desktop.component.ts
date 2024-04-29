@@ -25,4 +25,22 @@ export class CartDesktopComponent {
   getSubtotal(items: BasketItem[]) {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   }
+
+  getTotal(items: BasketItem[]) {
+    return this.getSubtotal(items) + 10
+  }
+
+  incrementQuantity(item: BasketItem) {
+    this.basketService.addItemToBasket(item);
+  }
+
+  removeItem(id: number, quantity?: number) {
+    this.basketService.removeFromBasket(id);
+  }
+
+  deleteBasket(basket: Basket){
+    this.basketService.deleteBasket(basket)
+  }
+
+
 }
