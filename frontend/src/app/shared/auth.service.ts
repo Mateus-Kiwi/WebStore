@@ -20,9 +20,11 @@ export class AuthService implements OnInit {
 
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then((userCredential) => {
-
+      const userId = userCredential.user?.uid;
+      if (userId) {
+        localStorage.setItem('userId', userId);
+      }
         localStorage.setItem('token', 'true');
-
         this.router.navigate(['/']);
         console.log('logged in');
       },
@@ -48,6 +50,26 @@ export class AuthService implements OnInit {
         alert(err.message);
       }
     );
+  }
+
+  updateUserProfile(userId: string, firstName: string, lastName: string, address: string, city: string, state: string, zipCode: string, country: string) {
+
+    firebase.firestore().collection('users').doc(userId).set({
+      firstName,
+      lastName,
+      address,
+      city,
+      state,
+      zipCode,
+      country,
+    }, { merge: true })
+      .then(() => {
+        console.log('User profile updated successfully');
+        this.router.navigate(['/billing']);
+      })
+      .catch((error) => {
+        console.error('Error updating user profile:', error);
+      });
   }
 
   logout() {

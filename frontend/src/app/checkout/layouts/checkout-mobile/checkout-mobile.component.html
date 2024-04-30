@@ -4,11 +4,13 @@
       <div class="text-container">
         <h3>Shipping address</h3>
       </div>
-      <input type="text" placeholder="Full name"/>
-      <input type="text" placeholder="Address"/>
-      <input type="text" placeholder="City"/>
-      <input type="text" placeholder="Zip code"/>
-      <input type="text" placeholder="Country"/>
+      <input type="text" placeholder="First name" [(ngModel)]="firstName" name="firstName" required/>
+      <input type="text" placeholder="Last name" [(ngModel)]="lastName" name="lastName" required=""/>
+      <input type="text" placeholder="Address" [(ngModel)]="address" name="address" required/>
+      <input type="text" placeholder="City" [(ngModel)]="city" name="city" required/>
+      <input type="text" placeholder="State" [(ngModel)]="state" name="state" required/>
+      <input type="text" placeholder="Zip code" [(ngModel)]="zipCode" name="zipCode" required/>
+      <input type="text" placeholder="Country" [(ngModel)]="country" name="country" required/>
     </div>
   </div>
   <div class="summary">
@@ -18,7 +20,7 @@
       <div class="line"></div>
       <p class="summary-total">Total: $50.00</p>
     </div>
-    <button class="button-div" routerLink="/billing">
+    <button class="button-div" (click)="updateAddress()">
       <i  class="fa-solid fa-arrow-right"></i>
     </button>
   </div>

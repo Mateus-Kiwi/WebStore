@@ -15,20 +15,20 @@
       <div class="products-container">
         <button class="clear-btn" (click)="deleteBasket(basket)">Clear basket</button>
         @for (item of basket.items; track $index) {
-        <div class="product-cart-card" routerLink="/{{item.id}}">
-          <div class="img-container">
+        <div class="product-cart-card">
+          <div class="img-container" routerLink="/{{ item.id }}">
             <img src="{{ item.imgUrl }}" />
           </div>
           <div class="info-container">
             <div class="top-line">
-              <h5 class="title">{{ item.name }}</h5>
+              <h5 class="title" routerLink="/{{ item.id }}">{{ item.name }}</h5>
               <div class="plusminus">
                 <i class="fa fa-minus" (click)="removeItem(item.id)"></i>
                 <i class="fa fa-plus" (click)="incrementQuantity(item)"></i>
               </div>
             </div>
 
-            <p class="description">{{ item.description }}</p>
+            <p class="description" routerLink="/{{ item.id }}">{{ item.description }}</p>
             <p class="quantity">x{{ item.quantity }}</p>
             <p class="price">${{ item.price }}</p>
           </div>
