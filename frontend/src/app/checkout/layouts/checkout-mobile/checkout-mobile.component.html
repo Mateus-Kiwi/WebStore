@@ -1,27 +1,30 @@
 <body>
-  <div class="login">
-    <div class="form-div">
-      <div class="text-container">
-        <h3>Shipping address</h3>
+  @if (basketService.cartSource$ | async; as basket){
+    <div class="login">
+      <div class="form-div">
+        <div class="text-container">
+          <h3>Shipping address</h3>
+        </div>
+          <input type="text" placeholder="First name" [(ngModel)]="userData!.firstName" name="firstName" />
+          <input type="text" placeholder="Last name" [(ngModel)]="userData!.lastName" name="lastName"/>
+          <input type="text" placeholder="Address" [(ngModel)]="userData!.address" name="address" />
+          <input type="text" placeholder="City" [(ngModel)]="userData!.city" name="city" />
+          <input type="text" placeholder="State" [(ngModel)]="userData!.state" name="state" />
+          <input type="text" placeholder="Zip code" [(ngModel)]="userData!.zipCode" name="zipCode" />
+          <input type="text" placeholder="Country" [(ngModel)]="userData!.country" name="country" />
       </div>
-      <input type="text" placeholder="First name" [(ngModel)]="firstName" name="firstName" required/>
-      <input type="text" placeholder="Last name" [(ngModel)]="lastName" name="lastName" required=""/>
-      <input type="text" placeholder="Address" [(ngModel)]="address" name="address" required/>
-      <input type="text" placeholder="City" [(ngModel)]="city" name="city" required/>
-      <input type="text" placeholder="State" [(ngModel)]="state" name="state" required/>
-      <input type="text" placeholder="Zip code" [(ngModel)]="zipCode" name="zipCode" required/>
-      <input type="text" placeholder="Country" [(ngModel)]="country" name="country" required/>
     </div>
-  </div>
-  <div class="summary">
-    <div class="summary-text-div">
-      <p class="summary-text">Subtotal: $40.00</p>
-      <p class="summary-text">Shipping: $10.00</p>
-      <div class="line"></div>
-      <p class="summary-total">Total: $50.00</p>
+    <div class="summary">
+      <div class="summary-text-div">
+        <p class="summary-values">Subtotal: {{ getSubtotal(basket.items) | currency }}</p>
+            <p class="summary-values">Shipping: $10.00</p>
+            <div class="line"></div>
+            <p class="summary-total">Total: {{getTotal(basket.items) | currency}}</p>
+      </div>
+      <button class="button-div" (click)="updateAddress()">
+        <i  class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
-    <button class="button-div" (click)="updateAddress()">
-      <i  class="fa-solid fa-arrow-right"></i>
-    </button>
-  </div>
+  }
+
 </body>

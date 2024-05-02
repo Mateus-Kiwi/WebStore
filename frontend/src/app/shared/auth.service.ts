@@ -2,8 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { FirebaseApp } from 'firebase/app';
 import { firebase } from '../../environments/firebase.config';
+import { UserData } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -13,17 +13,16 @@ export class AuthService implements OnInit {
   ngOnInit(): void {
     this.fireauth.onAuthStateChanged((user) => {
       console.log(user);
-    })
+    });
   }
 
-
-
   login(email: string, password: string) {
-    this.fireauth.signInWithEmailAndPassword(email, password).then((userCredential) => {
-      const userId = userCredential.user?.uid;
-      if (userId) {
-        localStorage.setItem('userId', userId);
-      }
+    this.fireauth.signInWithEmailAndPassword(email, password).then(
+      (userCredential) => {
+        const userId = userCredential.user?.uid;
+        if (userId) {
+          localStorage.setItem('userId', userId);
+        }
         localStorage.setItem('token', 'true');
         this.router.navigate(['/']);
         console.log('logged in');
@@ -35,13 +34,14 @@ export class AuthService implements OnInit {
   }
 
   register(email: string, password: string, username: string) {
-    this.fireauth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
+    this.fireauth.createUserWithEmailAndPassword(email, password).then(
+      (userCredential) => {
         const user = userCredential.user;
-        const userId = user?.uid
+        const userId = user?.uid;
 
         firebase.firestore().collection('users').doc(userId).set({
           name: username,
-        })
+        });
         localStorage.setItem('token', 'true');
         console.log('user created');
         this.router.navigate(['/']);
@@ -52,17 +52,26 @@ export class AuthService implements OnInit {
     );
   }
 
-  updateUserProfile(userId: string, firstName: string, lastName: string, address: string, city: string, state: string, zipCode: string, country: string) {
+  updateUserProfile(userId: string, userData: UserData) {
+    const { firstName, lastName, address, city, state, zipCode, country } =
+      userData;
 
-    firebase.firestore().collection('users').doc(userId).set({
-      firstName,
-      lastName,
-      address,
-      city,
-      state,
-      zipCode,
-      country,
-    }, { merge: true })
+    firebase
+      .firestore()
+      .collection('users')
+      .doc(userId)
+      .set(
+        {
+          firstName,
+          lastName,
+          address,
+          city,
+          state,
+          zipCode,
+          country,
+        },
+        { merge: true }
+      )
       .then(() => {
         console.log('User profile updated successfully');
         this.router.navigate(['/billing']);
@@ -74,15 +83,12 @@ export class AuthService implements OnInit {
 
   logout() {
     this.fireauth.signOut().then(() => {
-    localStorage.removeItem('token');
-    localStorage.setItem('token', 'false');
-    console.log('logged out');
-    this.router.navigate(['/login']);
-  })
-}
+      localStorage.removeItem('token');
+      localStorage.setItem('token', 'false');
+      console.log('logged out');
+      this.router.navigate(['/login']);
+    });
+  }
 
-   isLoggedIn() {
-
-   }
-
+  isLoggedIn() {}
 }

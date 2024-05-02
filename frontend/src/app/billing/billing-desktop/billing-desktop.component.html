@@ -1,4 +1,5 @@
 <body>
+  @if (basketService.cartSource$ | async; as basket){
   <div class="text-container">
     <h3>Fill in the payment information</h3>
   </div>
@@ -16,14 +17,19 @@
     <div class="summary">
       <div class="summary-text-div">
         <h4 class="summary-text">Summary</h4>
-        <p class="summary-values">Subtotal: $40.00</p>
-        <p class="summary-values">Shipping: $10.00</p>
+        <p class="summary-text">
+          Subtotal: {{ getSubtotal(basket.items) | currency }}
+        </p>
+        <p class="summary-text">Shipping: $10.00</p>
         <div class="line"></div>
-        <p class="summary-total">Total: $50.00</p>
+        <p class="summary-total">
+          Total: {{ getTotal(basket.items) | currency }}
+        </p>
       </div>
       <div class="button-div" routerLink="/confirmation">
         <h4>Confirm payment</h4>
       </div>
     </div>
   </div>
+  }
 </body>

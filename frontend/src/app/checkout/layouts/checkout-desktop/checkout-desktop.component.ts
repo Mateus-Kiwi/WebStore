@@ -1,13 +1,73 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, Self } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, NgControl, Validator, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Basket, BasketItem } from '../../../models/basket';
+import { UserData } from '../../../models/user';
+import { AccountService } from '../../../shared/account.service';
+
+import { AuthService } from '../../../shared/auth.service';
+import { ShoppingCartService } from '../../../shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-checkout-desktop',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './checkout-desktop.component.html',
-  styleUrl: './checkout-desktop.component.scss'
+  styleUrl: './checkout-desktop.component.scss',
 })
-export class CheckoutDesktopComponent {
+export class CheckoutDesktopComponent implements OnInit {
+  basket: Basket[] = [];
+  userData: UserData | null = null;
+  form!: FormGroup;
 
+  constructor(
+    private auth: AuthService,
+    public basketService: ShoppingCartService,
+    public accountService: AccountService,
+    private formBuilder: FormBuilder
+  ) {}
+  ngOnInit(): void {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      this.accountService.getUser(userId).then((user: UserData | null) => {
+        if (user) {
+          this.userData = user;
+        }
+      });
+    }
+
+    this.createForm();
+  }
+
+  updateAddress() {
+    const userId = localStorage.getItem('userId');
+    if (userId && this.userData) {
+      this.auth.updateUserProfile(userId, this.userData);
+    }
+  }
+
+  getCount(items: BasketItem[]) {
+    return items.reduce((total, item) => total + item.quantity, 0);
+  }
+
+  getSubtotal(items: BasketItem[]) {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+
+  getTotal(items: BasketItem[]) {
+    return this.getSubtotal(items) + 10;
+  }
+
+  createForm(): void {
+    this.form = this.formBuilder.group({
+      firstName: [this.userData?.firstName, Validators.required],
+      lastName: [this.userData?.lastName, Validators.required],
+      address: [this.userData?.address, Validators.required],
+      city: [this.userData?.city, Validators.required],
+      state: [this.userData?.state, Validators.required],
+      zipCode: [this.userData?.zipCode, Validators.required],
+      country: [this.userData?.country, Validators.required],
+    });
+  }
 }
