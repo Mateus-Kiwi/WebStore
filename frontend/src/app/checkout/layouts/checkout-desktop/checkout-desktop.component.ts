@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, Self } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, NgControl, Validator, Validators } from '@angular/forms';
+import { Component, OnInit, Self, inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule, Validator, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Basket, BasketItem } from '../../../models/basket';
 import { UserData } from '../../../models/user';
@@ -12,20 +12,21 @@ import { ShoppingCartService } from '../../../shopping-cart/shopping-cart.servic
 @Component({
   selector: 'app-checkout-desktop',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './checkout-desktop.component.html',
   styleUrl: './checkout-desktop.component.scss',
 })
 export class CheckoutDesktopComponent implements OnInit {
-  basket: Basket[] = [];
+  
   userData: UserData | null = null;
   form!: FormGroup;
+  fb = inject(FormBuilder);
 
   constructor(
     private auth: AuthService,
     public basketService: ShoppingCartService,
     public accountService: AccountService,
-    private formBuilder: FormBuilder
+
   ) {}
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
@@ -60,7 +61,7 @@ export class CheckoutDesktopComponent implements OnInit {
   }
 
   createForm(): void {
-    this.form = this.formBuilder.group({
+    this.form = this.fb.group({
       firstName: [this.userData?.firstName, Validators.required],
       lastName: [this.userData?.lastName, Validators.required],
       address: [this.userData?.address, Validators.required],

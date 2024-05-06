@@ -26,9 +26,9 @@
           Total: {{ getTotal(basket.items) | currency }}
         </p>
       </div>
-      <div class="button-div" routerLink="/confirmation">
+      <button class="button-div" (click)="submitOrder()" >
         <h4>Confirm payment</h4>
-      </div>
+      </button>
     </div>
   </div>
   }

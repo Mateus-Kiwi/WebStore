@@ -1,16 +1,17 @@
-import { Address } from "./user"
+import { UserData } from "./user"
+
 
 export interface OrderToCreate{
     basketId: string
     deliveryMethodId: number
-    shipToAddress: Address
+    shipToAddress: UserData
 }
 
 export interface Order {
     id: number
     buyerEmail: string
     orderDate: string
-    shipToAddress: Address
+    shipToAddress: UserData
     deliveryMethod: string
     shippingPrice: number
     orderItems: OrderItem[]
@@ -18,7 +19,7 @@ export interface Order {
     total: number
     status: string
   }
-  
+
   export interface ShipToAddress {
     firstName: string
     lastName: string
@@ -27,7 +28,7 @@ export interface Order {
     state: string
     zipCode: string
   }
-  
+
   export interface OrderItem {
     productId: number
     productName: string
@@ -36,4 +37,3 @@ export interface Order {
     quantity: number
     quantityStock: number
   }
-  
