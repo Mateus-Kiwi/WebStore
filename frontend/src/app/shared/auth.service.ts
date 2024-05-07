@@ -16,6 +16,8 @@ export class AuthService implements OnInit {
     });
   }
 
+
+
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(
       (userCredential) => {
@@ -41,6 +43,7 @@ export class AuthService implements OnInit {
 
         firebase.firestore().collection('users').doc(userId).set({
           name: username,
+          email: email,
         });
         localStorage.setItem('token', 'true');
         console.log('user created');

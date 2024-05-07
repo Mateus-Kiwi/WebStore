@@ -25,4 +25,24 @@ export class AccountService {
         }
       });
   }
+
+  getEmail() {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      firebase
+      .firestore()
+      .collection('users')
+      .doc(userId)
+      .get(
+        {
+          ARRUMMARRRRRRRR
+          ,
+        },
+      )
+    }
+
+
+  }
+
+
 }
