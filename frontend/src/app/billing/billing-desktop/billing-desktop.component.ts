@@ -74,13 +74,19 @@ export class BillingDesktopComponent implements OnInit{
     })
   }
 
-  private getOrderToCreate(basket: Basket): OrderToCreate {
+   getOrderToCreate(basket: Basket): OrderToCreate {
     const deliveryMethodId = 3
+    var email = ''
+    if (this.userData?.email) {
+      email = this.userData.email;
+    }
     const shipToAddress = this.userData;
+
     if (!deliveryMethodId || !shipToAddress) throw new Error('Problem goyilutgforf');
     return {
       basketId: basket.id,
       deliveryMethodId: deliveryMethodId,
+      buyerEmail : email,
       shipToAddress: shipToAddress
     }
   }

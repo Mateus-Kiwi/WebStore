@@ -29,6 +29,16 @@ export class CheckoutDesktopComponent implements OnInit {
     public accountService: AccountService,
 
   ) {}
+
+  nego(){
+    var ney = "ney"
+
+    if (ney == "ney") {
+      console.log("eu acho que esse bicho ai eh meu pa seu buceta")
+      console.log("rammmmm pá rammmm pa")
+      console.log("voce eh o bichao msm")
+    }
+  }
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
     if (userId) {
@@ -73,10 +83,4 @@ export class CheckoutDesktopComponent implements OnInit {
     });
   }
 
-  test(){
-    const userId = localStorage.getItem('userId');
-    if (userId) {
-      this.accountService.getEmail(userId)
-    }
-  }
 }

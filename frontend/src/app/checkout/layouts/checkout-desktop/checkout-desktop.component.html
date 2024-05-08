@@ -16,7 +16,6 @@
             <input type="text" placeholder="Zip code" [(ngModel)]="userData!.zipCode" name="zipCode" formControlName="zipCode"/>
             <input type="text" placeholder="Country" [(ngModel)]="userData!.country" name="country" formControlName="country"/>
           </form>
-
           </div>
         </div>
       </div>
@@ -31,9 +30,9 @@
         <button class="button-div" [class.active]="this.form.valid" (click)="updateAddress()" [disabled]="!this.form.valid">
           <h4>Proceed to payment</h4>
         </button>
+        <button class="button-div" (click)="nego()"></button>
       </div>
     </div>
-    <button (click)="test()">dkeofkoekof</button>
-  }
+  } 
 
 </body>

@@ -26,6 +26,7 @@ export class AccountService {
       });
   }
 
+
   // getEmail(userId: string) {
   //   return firebase
   //     .firestore()
@@ -34,31 +35,13 @@ export class AccountService {
   //     .get()
   //     .then((doc) => {
   //       if (doc.exists) {
-  //         const userData = doc.data() as UserData;
-  //         console.log(userData.email);
-  //         return userData.email;
-  //       } else {
-  //         console.log('neogney');
-  //         return null;
+  //         const userData = doc.data();
+  //         if (userData) {
+  //           return userData['email'];
+  //         } else {
+  //           return null;
+  //         }
   //       }
   //     });
   // }
-
-  getEmail(userId: string) {
-    return firebase
-      .firestore()
-      .collection('users')
-      .doc(userId)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          const userData = doc.data();
-          if (userData) {
-            return userData['email'];
-          } else {
-            return null;
-          }
-        }
-      });
-  }
 }
