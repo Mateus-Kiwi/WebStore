@@ -26,23 +26,39 @@ export class AccountService {
       });
   }
 
-  getEmail() {
-    const userId = localStorage.getItem('userId');
-    if (userId) {
-      firebase
+  // getEmail(userId: string) {
+  //   return firebase
+  //     .firestore()
+  //     .collection('users')
+  //     .doc(userId)
+  //     .get()
+  //     .then((doc) => {
+  //       if (doc.exists) {
+  //         const userData = doc.data() as UserData;
+  //         console.log(userData.email);
+  //         return userData.email;
+  //       } else {
+  //         console.log('neogney');
+  //         return null;
+  //       }
+  //     });
+  // }
+
+  getEmail(userId: string) {
+    return firebase
       .firestore()
       .collection('users')
       .doc(userId)
-      .get(
-        {
-          ARRUMMARRRRRRRR
-          ,
-        },
-      )
-    }
-
-
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const userData = doc.data();
+          if (userData) {
+            return userData['email'];
+          } else {
+            return null;
+          }
+        }
+      });
   }
-
-
 }

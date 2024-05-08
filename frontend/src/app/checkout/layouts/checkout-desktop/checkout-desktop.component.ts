@@ -8,6 +8,7 @@ import { AccountService } from '../../../shared/account.service';
 
 import { AuthService } from '../../../shared/auth.service';
 import { ShoppingCartService } from '../../../shopping-cart/shopping-cart.service';
+import { user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-checkout-desktop',
@@ -17,7 +18,7 @@ import { ShoppingCartService } from '../../../shopping-cart/shopping-cart.servic
   styleUrl: './checkout-desktop.component.scss',
 })
 export class CheckoutDesktopComponent implements OnInit {
-  
+
   userData: UserData | null = null;
   form!: FormGroup;
   fb = inject(FormBuilder);
@@ -70,5 +71,12 @@ export class CheckoutDesktopComponent implements OnInit {
       zipCode: [this.userData?.zipCode, Validators.required],
       country: [this.userData?.country, Validators.required],
     });
+  }
+
+  test(){
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      this.accountService.getEmail(userId)
+    }
   }
 }
