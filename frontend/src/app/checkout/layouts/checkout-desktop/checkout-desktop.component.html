@@ -10,7 +10,7 @@
             <form [formGroup]="form">
             <input type="text"  placeholder="First name"  [(ngModel)]="userData!.firstName" name="firstName" formControlName="firstName"/>
             <input type="text" placeholder="Last name" [(ngModel)]="userData!.lastName" name="lastName" formControlName="lastName"/>
-            <input type="text" placeholder="Address" [(ngModel)]="userData!.address" name="address" formControlName="address"/>
+            <input type="text" placeholder="Street" [(ngModel)]="userData!.street" name="street" formControlName="street"/>
             <input type="text" placeholder="City" [(ngModel)]="userData!.city" name="city" formControlName="city"/>
             <input type="text" placeholder="State" [(ngModel)]="userData!.state" name="state" formControlName="state"/>
             <input type="text" placeholder="Zip code" [(ngModel)]="userData!.zipCode" name="zipCode" formControlName="zipCode"/>
@@ -30,9 +30,9 @@
         <button class="button-div" [class.active]="this.form.valid" (click)="updateAddress()" [disabled]="!this.form.valid">
           <h4>Proceed to payment</h4>
         </button>
-        <button class="button-div" (click)="nego()"></button>
+        <button class="button-div" (click)="nego()" (click)="createPaymentIntent()"></button>
       </div>
     </div>
-  } 
+  }
 
 </body>

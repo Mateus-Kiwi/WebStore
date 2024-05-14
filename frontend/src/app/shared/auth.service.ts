@@ -56,7 +56,7 @@ export class AuthService implements OnInit {
   }
 
   updateUserProfile(userId: string, userData: UserData) {
-    const { firstName, lastName, address, city, state, zipCode, country } =
+    const { firstName, lastName, street, city, state, zipCode, country } =
       userData;
 
     firebase
@@ -67,7 +67,7 @@ export class AuthService implements OnInit {
         {
           firstName,
           lastName,
-          address,
+          street,
           city,
           state,
           zipCode,

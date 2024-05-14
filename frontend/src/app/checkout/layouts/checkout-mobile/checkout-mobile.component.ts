@@ -41,6 +41,12 @@ export class CheckoutMobileComponent {
     this.createForm();
   }
 
+  createPaymentIntent() {
+    this.basketService.createPaymentIntent().subscribe({
+      next: () => console.log("Yippee")
+    })
+  }
+
   updateAddress() {
     const userId = localStorage.getItem('userId');
     if (userId && this.userData) {
@@ -64,7 +70,7 @@ export class CheckoutMobileComponent {
     this.form = this.fb.group({
       firstName: [this.userData?.firstName, Validators.required],
       lastName: [this.userData?.lastName, Validators.required],
-      address: [this.userData?.address, Validators.required],
+      street: [this.userData?.street, Validators.required],
       city: [this.userData?.city, Validators.required],
       state: [this.userData?.state, Validators.required],
       zipCode: [this.userData?.zipCode, Validators.required],

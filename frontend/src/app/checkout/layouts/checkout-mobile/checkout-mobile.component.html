@@ -8,7 +8,7 @@
         <form [formGroup]="form">
           <input type="text"  placeholder="First name"  [(ngModel)]="userData!.firstName" name="firstName" formControlName="firstName"/>
           <input type="text" placeholder="Last name" [(ngModel)]="userData!.lastName" name="lastName" formControlName="lastName"/>
-          <input type="text" placeholder="Address" [(ngModel)]="userData!.address" name="address" formControlName="address"/>
+          <input type="text" placeholder="Street" [(ngModel)]="userData!.street" name="street" formControlName="street"/>
           <input type="text" placeholder="City" [(ngModel)]="userData!.city" name="city" formControlName="city"/>
           <input type="text" placeholder="State" [(ngModel)]="userData!.state" name="state" formControlName="state"/>
           <input type="text" placeholder="Zip code" [(ngModel)]="userData!.zipCode" name="zipCode" formControlName="zipCode"/>
@@ -23,7 +23,7 @@
             <div class="line"></div>
             <p class="summary-total">Total: {{getTotal(basket.items) | currency}}</p>
       </div>
-      <button class="button-div" [class.active]="this.form.valid" (click)="updateAddress()" [disabled]="!this.form.valid">
+      <button class="button-div" [class.active]="this.form.valid" (click)="updateAddress()" (click)="createPaymentIntent()" [disabled]="!this.form.valid">
         <i  class="fa-solid fa-arrow-right"></i>
       </button>
     </div>

@@ -14,17 +14,20 @@ import { AccountService } from '../../shared/account.service';
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './billing-desktop.component.html',
-  styleUrl: './billing-desktop.component.scss'
+  styleUrl: './billing-desktop.component.scss',
 })
-export class BillingDesktopComponent implements OnInit{
-
+export class BillingDesktopComponent implements OnInit {
   userData: UserData | null = null;
   basket: Basket[] = [];
   form!: FormGroup;
   fb = inject(FormBuilder);
   @Input() checkoutForm?: FormGroup;
 
-  constructor(public basketService: ShoppingCartService, private accountService: AccountService, private checkoutService: CheckoutService) { }
+  constructor(
+    public basketService: ShoppingCartService,
+    private accountService: AccountService,
+    private checkoutService: CheckoutService
+  ) {}
   ngOnInit(): void {
     this.createForm();
 
@@ -60,41 +63,47 @@ export class BillingDesktopComponent implements OnInit{
   //   }
   // }
 
-
-
   submitOrder() {
     const basket = this.basketService.getCurrentBasketValue();
-    if(!basket) return;
+    if (!basket) return;
     const orderToCreate = this.getOrderToCreate(basket);
-    if(!orderToCreate) return;
+    if (!orderToCreate) return;
     this.checkoutService.createOrder(orderToCreate).subscribe({
-      next: order => {
+      next: (order) => {
         console.log(order);
-      }
-    })
+      },
+    });
   }
 
-   getOrderToCreate(basket: Basket): OrderToCreate {
-    const deliveryMethodId = 3
-    var email = ''
+
+
+  getOrderToCreate(basket: Basket): OrderToCreate {
+    const deliveryMethodId = 1;
+    var email = '';
     if (this.userData?.email) {
       email = this.userData.email;
     }
-    const shipToAddress = this.userData;
-
-    if (!deliveryMethodId || !shipToAddress) throw new Error('Problem goyilutgforf');
+    const shipToAddress = {
+      firstName: this.userData?.firstName ?? '',
+      lastName: this.userData?.lastName ?? '',
+      street: this.userData?.street ?? '',
+      city: this.userData?.city ?? '',
+      state: this.userData?.state ?? '',
+      zipCode: this.userData?.zipCode ?? '',
+    };
+    if (!deliveryMethodId || !shipToAddress || !email)
+      throw new Error('Error creating order');
     return {
       basketId: basket.id,
       deliveryMethodId: deliveryMethodId,
-      buyerEmail : email,
-      shipToAddress: shipToAddress
-    }
+      buyerEmail: email,
+      shipToAddress: shipToAddress,
+    };
   }
-
 
   createForm(): void {
     this.form = this.fb.group({
-      nameOnCard: ['', Validators.required],
+      nameOnCard: [''],
     });
   }
 
@@ -107,7 +116,7 @@ export class BillingDesktopComponent implements OnInit{
   }
 
   getTotal(items: BasketItem[]) {
-    return this.getSubtotal(items) + 10
+    return this.getSubtotal(items) + 10;
   }
 
   incrementQuantity(item: BasketItem) {
@@ -118,7 +127,7 @@ export class BillingDesktopComponent implements OnInit{
     this.basketService.removeFromBasket(id);
   }
 
-  deleteBasket(basket: Basket){
-    this.basketService.deleteBasket(basket)
+  deleteBasket(basket: Basket) {
+    this.basketService.deleteBasket(basket);
   }
 }

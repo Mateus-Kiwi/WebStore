@@ -12,7 +12,7 @@ export class CheckoutService {
   constructor(private http: HttpClient) { }
 
   createOrder(order: OrderToCreate) {
-    return this.http.post<Order>(this.baseUrl + 'orders', order);
+    return this.http.post<Order>(this.baseUrl + 'Order', order);
   }
 
 }
