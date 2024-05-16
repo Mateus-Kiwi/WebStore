@@ -5,10 +5,23 @@
       <div class="text-container">
         <h3>Billing information</h3>
       </div>
-      <input type="text" placeholder="Name on card" required/>
-      <input type="text" placeholder="Card number" required/>
-      <input type="text" placeholder="Expiration date"required/>
-      <input type="text" placeholder="CVC" required/>
+      <div class="info-container" [formGroup]="checkoutForm">
+        <div class="paymentForm" formGroupName="paymentForm">
+          <input type="text" placeholder="Name on card" formControlName="nameOnCard"/>
+        </div>
+        <div class="stripe-container">
+          <div class="input-box">
+            <div class="form-control" #cardNumber></div>
+          </div>
+          <div class="input-box">
+            <div class="form-control" #cardExpiry></div>
+          </div>
+          <div class="input-box">
+            <div class="form-control" #cardCvc></div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
   <div class="summary">

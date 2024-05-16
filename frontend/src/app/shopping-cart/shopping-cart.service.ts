@@ -109,7 +109,7 @@ export class ShoppingCartService {
       description: item.description,
       price: item.price,
       quantity: 0,
-      inventory: 0,
+      inventory: item.inventory,
       imgUrl: item.imgUrl,
       brandId: item.brandId,
       categoryId: item.categoryId

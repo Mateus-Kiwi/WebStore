@@ -6,11 +6,21 @@
   <div class="notifs">
     <div class="products-container">
       <div class="product-cart-card">
-        <div class="info-container">
-          <input type="text" placeholder="Name on card" />
-          <input type="text" placeholder="Card number" />
-          <input type="text" placeholder="Expiration date" />
-          <input type="text" placeholder="CVC" />
+        <div class="info-container" [formGroup]="checkoutForm">
+          <div class="paymentForm" formGroupName="paymentForm">
+            <input type="text" placeholder="Name on card" formControlName="nameOnCard"/>
+          </div>
+          <div class="stripe-container">
+            <div class="d2">
+              <div class="form-control" #cardNumber></div>
+            </div>
+            <div class="d1">
+              <div class="form-control" #cardExpiry></div>
+            </div>
+            <div class="d1">
+              <div class="form-control" #cardCvc></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -26,8 +36,7 @@
           Total: {{ getTotal(basket.items) | currency }}
         </p>
       </div>
-      <button (click)="submitOrder()">iforfubrhuf</button>
-      <button class="button-div" (click)="submitOrder()" >
+      <button class="button-div" (click)="submitOrder()">
         <h4>Confirm payment</h4>
       </button>
     </div>

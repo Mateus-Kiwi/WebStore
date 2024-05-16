@@ -29,12 +29,20 @@ h3 {
 
 }
 .form-div{
-  padding: 10%;
+  padding: 7.5%;
 
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.info-container {
+  width: 100%;
+}
+.paymentForm {
+  display: flex;
+  align-items: center ;
 }
 input{
   background-color: #f5f5f5;
@@ -49,6 +57,43 @@ input{
       outline: none
     }
 }
+.input-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  height: 3rem;
+  background-color: #f5f5f5;
+  margin: 0.5rem;
+  padding-left: 0.1rem;
+  border-radius: 1rem;
+}
+.form-control {
+  background: none;
+  border: none;
+}
+
+.stripe-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+// .form-control {
+//   display: flex;
+//   color: #707070;
+//   padding-left: 1.25rem;
+//   flex-direction: column;
+//   justify-content: center;
+//   background-color: #fff;
+//   border: none;
+//   height: 3rem;
+//   width: 100%;
+//   border-radius: 1rem;
+
+//     &:focus{
+//       outline: none
+//     }
+// }
 h2{
   color: #3c5fa9;
   align-self: flex-start;
@@ -64,6 +109,8 @@ h2{
 
   background-color: #f5f5f5;
 }
+
+
 
 .summary-text-div{
   display: flex;
