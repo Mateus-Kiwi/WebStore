@@ -7,15 +7,25 @@ body{
   height: 25vh;
 }
 .pfp-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
   width: 7rem;
   height: 7rem;
   border-radius: 4rem;
-  background-color: #76d2de;
+  background-color: #3c5fa9;
   top: 3rem;
   left: 50%;
   top: 6.5rem;
   transform: translate(-50%, -50%);
+}
+.pfp-text {
+  color: #ffffff;
+  font-size: 4rem;
+  text-align: center;
+  height: fit-content;
+  font-weight: bold;
 }
 .background{
   width: 100%;
@@ -119,6 +129,7 @@ h6{
     transition: 0.3s;
   }
 }
+
 
 .logo{
   height: 50%;

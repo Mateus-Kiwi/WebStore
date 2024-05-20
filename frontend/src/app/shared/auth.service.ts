@@ -42,7 +42,7 @@ export class AuthService implements OnInit {
         const userId = user?.uid;
 
         firebase.firestore().collection('users').doc(userId).set({
-          name: username,
+          displayName: username,
           email: email,
         });
         localStorage.setItem('token', 'true');

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NavigationExtras, Router, RouterModule } from '@angular/router';
 import { Basket, BasketItem } from '../../models/basket';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import { CommonModule } from '@angular/common';
@@ -33,7 +33,8 @@ export class BillingMobileComponent implements OnInit {
   constructor(
     public basketService: ShoppingCartService,
     private accountService: AccountService,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     setTimeout(() => {
@@ -72,6 +73,24 @@ export class BillingMobileComponent implements OnInit {
     this.checkoutService.createOrder(orderToCreate).subscribe({
       next: (order) => {
         console.log(order);
+        this.stripe
+          ?.confirmCardPayment(basket.clientSecret!, {
+            payment_method: {
+              card: this.cardNumber!,
+              billing_details: {
+                name: this.checkoutForm?.get('paymentForm')?.get('nameOnCard')
+                  ?.value!,
+              },
+            },
+          })
+          .then((result) => {
+            console.log(result);
+            if (result.paymentIntent) {
+              this.basketService.deleteLocalBasket();
+              const navigationExtras: NavigationExtras = { state: order };
+              this.router.navigate(['confirmation'], navigationExtras);
+            }
+          });
       },
     });
   }

@@ -1,14 +1,34 @@
 import { CheckoutService } from '../../shared/checkout.service';
-import { Component, ElementRef, Input, OnInit, ViewChild, inject, input } from '@angular/core';
-import { NavigationExtras, RouterModule } from '@angular/router';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+  inject,
+  input,
+} from '@angular/core';
+import { NavigationExtras, Router, RouterModule } from '@angular/router';
 import { Basket, BasketItem } from '../../models/basket';
 import { ShoppingCartService } from '../../shopping-cart/shopping-cart.service';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { OrderToCreate } from '../../models/order';
 import { UserData } from '../../models/user';
 import { AccountService } from '../../shared/account.service';
-import { Stripe, StripeCardCvcElement, StripeCardExpiryElement, StripeCardNumberElement, loadStripe } from '@stripe/stripe-js';
+import {
+  Stripe,
+  StripeCardCvcElement,
+  StripeCardExpiryElement,
+  StripeCardNumberElement,
+  loadStripe,
+} from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-billing-desktop',
@@ -33,14 +53,17 @@ export class BillingDesktopComponent implements OnInit {
   constructor(
     public basketService: ShoppingCartService,
     private accountService: AccountService,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
+    private router: Router
   ) {}
   ngOnInit(): void {
     setTimeout(() => {
-      loadStripe('pk_test_51PG31IEIjZzxLlEYIHdaxaTs1vy3uJq8ZBFoy2bDO3zVTEswau3ukVAobBNUsdIWC5p6hFReMq8x7Wj6W3icGugS00T0JQNVsG').then(stripe => {
+      loadStripe(
+        'pk_test_51PG31IEIjZzxLlEYIHdaxaTs1vy3uJq8ZBFoy2bDO3zVTEswau3ukVAobBNUsdIWC5p6hFReMq8x7Wj6W3icGugS00T0JQNVsG'
+      ).then((stripe) => {
         this.stripe = stripe;
         const elements = stripe?.elements();
-        if(elements) {
+        if (elements) {
           this.cardNumber = elements.create('cardNumber');
           this.cardNumber.mount(this.cardNumberElement?.nativeElement);
 
@@ -52,7 +75,6 @@ export class BillingDesktopComponent implements OnInit {
         }
       });
     }, 100);
-
 
     const userId = localStorage.getItem('userId');
 
@@ -73,11 +95,27 @@ export class BillingDesktopComponent implements OnInit {
     this.checkoutService.createOrder(orderToCreate).subscribe({
       next: (order) => {
         console.log(order);
+        this.stripe
+          ?.confirmCardPayment(basket.clientSecret!, {
+            payment_method: {
+              card: this.cardNumber!,
+              billing_details: {
+                name: this.checkoutForm?.get('paymentForm')?.get('nameOnCard')
+                  ?.value!,
+              },
+            },
+          })
+          .then((result) => {
+            console.log(result);
+            if (result.paymentIntent) {
+              this.basketService.deleteLocalBasket();
+              const navigationExtras: NavigationExtras = { state: order };
+              this.router.navigate(['confirmation'], navigationExtras);
+            }
+          });
       },
     });
   }
-
-
 
   getOrderToCreate(basket: Basket): OrderToCreate {
     const deliveryMethodId = 1;
@@ -105,12 +143,9 @@ export class BillingDesktopComponent implements OnInit {
 
   checkoutForm = this.fb.group({
     paymentForm: this.fb.group({
-      nameOnCard: ['', Validators.required]
+      nameOnCard: ['', Validators.required],
     }),
-  })
-
-
-
+  });
 
   getCount(items: BasketItem[]) {
     return items.reduce((total, item) => total + item.quantity, 0);

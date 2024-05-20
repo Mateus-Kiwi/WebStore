@@ -31,7 +31,7 @@
       <div class="line"></div>
       <p class="summary-total">Total: {{getTotal(basket.items) | currency}}</p>
     </div>
-    <button class="button-div" routerLink="/confirmation">
+    <button class="button-div" (click)="submitOrder()">
       <i  class="fa-solid fa-check"></i>
     </button>
   </div>
