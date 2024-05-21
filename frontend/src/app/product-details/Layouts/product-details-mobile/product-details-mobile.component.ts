@@ -25,8 +25,11 @@ export class ProductDetailsMobileComponent implements OnInit {
   }
 
   addItemToBasket() {
-    this.product && this.basketService.addItemToBasket(this.product);
+    if (!this.product) return;
+
+    this.basketService.addItemToBasket(this.product);
   }
+
 
   loadProduct() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');

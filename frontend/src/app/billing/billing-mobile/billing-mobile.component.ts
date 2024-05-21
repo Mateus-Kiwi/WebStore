@@ -29,6 +29,7 @@ export class BillingMobileComponent implements OnInit {
   cardNumber?: StripeCardNumberElement;
   cardExpiry?: StripeCardExpiryElement;
   cardCvc?: StripeCardCvcElement;
+  cardErrors: any;
 
   constructor(
     public basketService: ShoppingCartService,
@@ -41,15 +42,27 @@ export class BillingMobileComponent implements OnInit {
       loadStripe('pk_test_51PG31IEIjZzxLlEYIHdaxaTs1vy3uJq8ZBFoy2bDO3zVTEswau3ukVAobBNUsdIWC5p6hFReMq8x7Wj6W3icGugS00T0JQNVsG').then(stripe => {
         this.stripe = stripe;
         const elements = stripe?.elements();
-        if(elements) {
+        if (elements) {
           this.cardNumber = elements.create('cardNumber');
           this.cardNumber.mount(this.cardNumberElement?.nativeElement);
+          this.cardNumber.on('change', event => {
+            if (event.error) this.cardErrors = event.error.message;
+            else this.cardErrors = null;
+          })
 
           this.cardExpiry = elements.create('cardExpiry');
           this.cardExpiry.mount(this.cardExpiryElement?.nativeElement);
+          this.cardExpiry.on('change', event => {
+            if (event.error) this.cardErrors = event.error.message;
+            else this.cardErrors = null;
+          })
 
           this.cardCvc = elements.create('cardCvc');
           this.cardCvc.mount(this.cardCvcElement?.nativeElement);
+          this.cardCvc.on('change', event => {
+            if (event.error) this.cardErrors = event.error.message;
+            else this.cardErrors = null;
+          })
         }
       });
     }, 500);

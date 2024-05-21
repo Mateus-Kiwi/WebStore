@@ -25,7 +25,9 @@ export class ProductDetailsDesktopComponent implements OnInit {
   }
 
   addItemToBasket() {
-    this.product && this.basketService.addItemToBasket(this.product);
+    if (!this.product) return;
+
+    this.basketService.addItemToBasket(this.product);
   }
 
   loadProduct() {

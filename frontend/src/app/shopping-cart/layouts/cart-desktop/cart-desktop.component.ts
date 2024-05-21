@@ -31,6 +31,7 @@ export class CartDesktopComponent {
   }
 
   incrementQuantity(item: BasketItem) {
+    if (!item) return;
     this.basketService.addItemToBasket(item);
   }
 

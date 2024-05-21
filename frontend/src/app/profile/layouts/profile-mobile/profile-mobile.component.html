@@ -7,18 +7,32 @@
   </div>
   <div class="login">
     <div class="info-div">
-      <h4>{{userData?.displayName}} </h4>
-      <br />
-      <h5>Address</h5>
-      <p>
-        Rua ifjirjfirjfjir ifrjijri <br />Florianópolis, Brazil<br />88026206
-      </p>
-    </div>  
+      <h3 class="display-name">{{userData?.displayName}} </h3>
+      <h4>Personal information:</h4>
+      <div class="name-div">
+        <h6 class="email-line">{{userData?.firstName}} {{userData?.lastName}} </h6>
+        <h6 class="email-line">{{userData?.email}} </h6>
+      </div>
+      <br>
+      <h4>My address:</h4>
+      <div class="name-div">
+        <p>
+          {{userData?.street}}, {{userData?.city}}, {{userData?.state}}, {{userData?.country}} {{userData?.zipCode}}
+        </p>
+      </div>
+      <br>
+      <h4>My orders:</h4>
+      <div class="name-div">
+        nanananan
+        <br/>
+        nanananna
+      </div>
+    </div>
 
     <div class="form-div">
       <h2></h2>
       <div class="info-container"></div>
-      <button class="login-btn" (click)="logout()">Logout</button>
+      <button class="logout-btn" (click)="logout()">Logout</button>
     </div>
   </div>
 </body>
