@@ -87,6 +87,7 @@ export class AuthService implements OnInit {
   logout() {
     this.fireauth.signOut().then(() => {
       localStorage.removeItem('token');
+      localStorage.removeItem('userId');
       localStorage.setItem('token', 'false');
       console.log('logged out');
       this.router.navigate(['/login']);
